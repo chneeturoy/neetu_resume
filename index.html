@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    /* Base Variables & Smooth Scrolling */
+    html {
+      scroll-behavior: smooth; /* Ensures clicking nav links glides smoothly */
+    }
+
     :root {
-      --primary-color: #0ea5e9; /* Vibrant tech blue */
+      --primary-color: #0ea5e9;
       --primary-dark: #0284c7;
-      --secondary-color: #0f172a; /* Deep midnight for knowledge hub feel */
+      --secondary-color: #0f172a;
       --accent-color: #f59e0b;
       --surface-light: #f8fafc;
       --text-main: #334155;
@@ -27,7 +32,7 @@
       line-height: 1.7;
     }
 
-    /* Glassmorphism Navigation */
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
@@ -73,11 +78,10 @@
       max-width: 1300px;
     }
 
-    /* UPGRADED HERO: The Knowledge Hub Cover */
+    /* Hero Cover */
     header.hero {
-      padding: 140px 0 120px;
+      padding: 120px 0 100px;
       background-color: var(--secondary-color);
-      /* Creative CSS Blueprint/Mesh Background */
       background-image: 
         radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px),
         radial-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px);
@@ -109,7 +113,7 @@
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3.5rem;
       margin-bottom: 20px;
       color: white;
       letter-spacing: -1.5px;
@@ -118,14 +122,14 @@
 
     .hero p {
       color: #94a3b8;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       max-width: 800px;
     }
 
-    /* Typography & Headers */
+    /* Typography */
     h2 {
       margin-top: 80px;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--secondary-color);
       letter-spacing: -1px;
       display: flex;
@@ -148,10 +152,10 @@
       max-width: 800px;
     }
 
-    /* Architecture Grid */
+    /* Visually Rich Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 30px;
       align-items: stretch;
     }
@@ -159,12 +163,12 @@
     .card {
       background: white;
       border: 1px solid #e2e8f0;
-      padding: 40px 30px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
+      overflow: hidden; /* Keeps images inside borders */
     }
 
     .card:hover {
@@ -173,35 +177,43 @@
       border-color: var(--primary-color);
     }
 
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .card-content {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
     .card h3 {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--secondary-color);
       margin-top: 0;
       border-bottom: 2px solid #f1f5f9;
       padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .card p { flex-grow: 1; }
+    .card p { flex-grow: 1; font-size: 0.95rem; }
 
-    /* Special Highlight Boxes */
+    /* Highlight Boxes for Layman Tips */
     .highlight-box {
       background: var(--surface-light);
-      padding: 20px;
+      padding: 15px;
       border-left: 4px solid var(--primary-color);
       border-radius: 4px;
-      margin-top: 25px;
-      font-size: 0.95rem;
+      margin-top: 20px;
+      font-size: 0.9rem;
     }
 
-    .academic-cite {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--text-light);
-    }
-
-    /* External Links styling */
     .external-link-btn {
       display: inline-flex;
       align-items: center;
@@ -213,7 +225,7 @@
       border: 1px solid var(--primary-color);
       border-radius: 6px;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
       transition: all 0.2s;
     }
@@ -223,45 +235,37 @@
       color: white;
     }
 
-    /* Agile Section Specifically */
-    .agile-board {
-      background: var(--secondary-color);
+    /* Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--primary-color);
       color: white;
-      padding: 50px;
-      border-radius: 16px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .agile-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+    #backToTop.show {
+      opacity: 1;
+      visibility: visible;
     }
 
-    .agile-step {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 8px;
-    }
-
-    .agile-step h4 { color: var(--primary-color); margin-top: 0; }
-
-    /* Bonus Topics Styling */
-    .bonus-card {
-      border-top: 4px solid var(--accent-color);
-      background: #fffbeb;
-    }
-
-    /* Creative Case Study */
-    .creative-box {
-      border-left: 6px solid var(--accent-color);
-      background: linear-gradient(90deg, #ffffff 0%, #fffbeb 100%);
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      margin: 40px 0;
+    #backToTop:hover {
+      background: var(--secondary-color);
+      transform: translateY(-3px);
     }
 
     /* Media Grid */
@@ -276,7 +280,6 @@
       padding: 20px;
       border-radius: 12px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
     }
 
     .video-wrapper {
@@ -293,29 +296,9 @@
       top: 0; left: 0; width: 100%; height: 100%; border: none;
     }
 
-    /* External Library List */
-    .library-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    
-    .library-item {
-      padding: 20px;
-      background: white;
-      border-left: 4px solid var(--primary-color);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-
-    .library-item a {
-      font-weight: 600;
-      color: var(--secondary-color);
-      text-decoration: none;
-    }
-
     footer {
       text-align: center;
-      padding: 80px 20px;
+      padding: 60px 20px;
       background: var(--secondary-color);
       color: #94a3b8;
       margin-top: 80px;
@@ -326,203 +309,134 @@
 
 <body>
 
+  <button id="backToTop" title="Go to top">↑</button>
+
   <nav>
     <div class="nav-container">
       <div class="nav-brand">Project<span>Simplified.</span></div>
       <div class="nav-links">
         <a href="#author">The Architect</a>
-        <a href="#agile-deep-dive">Agile Hub</a>
         <a href="#core-areas">12 Core Elements</a>
-        <a href="#bonus-topics">Advanced Modules</a>
-        <a href="#external-library">Public Resources</a>
+        <a href="#multimedia">Media Hub</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container hero-content">
-      <div class="hero-pill">Comprehensive Knowledge Hub</div>
-      <h1>Architecting Impact<br>Through Process.</h1>
+      <div class="hero-pill">Jargon-Free Knowledge Hub</div>
+      <h1>Project Management, <br>Minus the Headaches.</h1>
       <p>
-        An open-access, heavily researched project management wiki designed to help small businesses and charities in Ireland translate complex methodologies into operational reality.
+        Built for laypeople, volunteers, and small business owners in Ireland. No corporate jargon—just simple, visual, and highly practical tools to help you get your ideas off the ground.
       </p>
-      <div style="margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap;">
-        <a href="#core-areas" style="padding: 16px 32px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Access the 12 Core Modules</a>
-        <a href="#external-library" style="padding: 16px 32px; background: rgba(255,255,255,0.1); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; border: 1px solid rgba(255,255,255,0.2);">Browse External Library</a>
+      <div style="margin-top: 30px;">
+        <a href="#core-areas" style="padding: 14px 28px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Start Learning</a>
       </div>
     </div>
   </header>
 
   <div class="container">
 
-    <div class="section" id="author" style="margin-top: 80px;">
+    <div class="section" id="author" style="margin-top: 60px;">
       <h2>The Architect Behind the Hub</h2>
-      <div style="font-size: 1.15rem; color: var(--text-main); max-width: 1000px; line-height: 1.8;">
+      <div style="font-size: 1.1rem; color: var(--text-main); max-width: 1000px;">
         <p>
-          <strong>Bridging 14+ years of industry execution with rigorous academic theory.</strong><br>
-          I am Neetu, currently pursuing an MSc in Project Management at the UCD Michael Smurfit Graduate Business School. Transitioning into a Technical Program Management role in the Dublin market, I recognized a gap: SMEs and non-profits do not need textbook definitions; they need highly tactical, publicly verifiable systems. This platform synthesizes my industry experience with external best practices to deliver a tangible guide for getting work done.
+          <strong>Hi, I'm Neetu.</strong> Drawing on over 14 years of professional experience and currently studying for my Masters in Project Management at the UCD Smurfit Graduate Business School, I built this hub for one reason: accessibility. Small charities and local businesses don't need academic textbooks; they need straight answers. This platform translates complex theory into tools anyone can use.
         </p>
         <a href="https://neeturoyportfolio.vercel.app/" target="_blank" class="external-link-btn" style="border: none; background: var(--surface-light); padding: 12px 24px;">View My Full TPM Portfolio ↗</a>
       </div>
     </div>
 
-    <div class="creative-box" id="case-study">
-      <h3 style="color: var(--accent-color); font-size: 1.5rem; margin-top: 0;">💡 The Gucci Operations Framework: Universal Applicability</h3>
-      <p style="font-size: 1.1rem;">
-        To demonstrate that project management methodologies are universally applicable, I apply Agile and Risk Management principles to a highly demanding stakeholder: <strong>my pet dog, Gucci.</strong>
-      </p>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-        <div>
-          <strong>1. Scope & Resource Procurement:</strong> Coordinating exact nutritional inputs (Oats, Ladoos, Omelets) against daily metabolic burn rates. Any scope creep results in stakeholder dissatisfaction.
-        </div>
-        <div>
-          <strong>2. Contingency Planning:</strong> Implementing immediate risk mitigation for adverse Dublin weather disrupting schedule baselines, or reallocating budget for unexpected vet visits.
-        </div>
-      </div>
-    </div>
-
-    <div class="section" id="agile-deep-dive">
-      <h2>Agile Methodology for Charities</h2>
-      <p class="section-subtitle">While Waterfall is great for rigid grants, charities often operate in high-ambiguity environments. Agile (specifically Scrum) allows teams to pivot quickly. Here is how an Irish SME can run a 2-week Sprint.</p>
-      
-      <div class="agile-board">
-        <h3 style="color: white; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px;">The 4-Step Charity Scrum</h3>
-        <div class="agile-grid">
-          <div class="agile-step">
-            <h4>1. Sprint Planning</h4>
-            <p style="color: #cbd5e1; font-size: 0.9rem;">Review the backlog. Select what the charity can realistically achieve in the next 14 days (e.g., "Draft 3 grant proposals").</p>
-          </div>
-          <div class="agile-step">
-            <h4>2. Daily Standup</h4>
-            <p style="color: #cbd5e1; font-size: 0.9rem;">A 15-minute daily sync. What did I do yesterday? What will I do today? Are there any blockers preventing progress?</p>
-          </div>
-          <div class="agile-step">
-            <h4>3. Sprint Review</h4>
-            <p style="color: #cbd5e1; font-size: 0.9rem;">End of week 2. Demonstrate the actual, tangible work completed to the Board or stakeholders. Gather immediate feedback.</p>
-          </div>
-          <div class="agile-step">
-            <h4>4. Retrospective</h4>
-            <p style="color: #cbd5e1; font-size: 0.9rem;">Internal team reflection. What went well? What failed? How do we adjust our process for the next sprint?</p>
-          </div>
-        </div>
-        <a href="https://scrumguides.org/scrum-guide.html" target="_blank" class="external-link-btn" style="border-color: white; color: white; margin-top: 30px;">Read the Official Scrum Guide ↗</a>
-      </div>
-    </div>
-
     <div class="section" id="core-areas">
       <h2>The 12 Core Knowledge Modules</h2>
-      <p class="section-subtitle">Synthesizing the mandatory PM framework. Every module is anchored by academic literature and linked to publicly available external tools.</p>
+      <p class="section-subtitle">Simplified concepts, visual guides, and tested links to help you manage work without needing a business degree.</p>
 
       <div class="cards">
         
         <div class="card">
-          <h3>1. Strategy & Governance</h3>
-          <p>Strategy aligns deliverables with the charity's mission. Governance establishes the Steering Committee rules, protecting the Board of Directors from unvetted scope creep.</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Charities Regulator Ireland (2022). 'Charities Governance Code'.</span>
+          <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Planning a project" class="card-img">
+          <div class="card-content">
+            <h3>🎯 1. Planning & Scope</h3>
+            <p>Imagine planning a massive charity gala. It feels overwhelming. The secret is the "Work Breakdown Structure" (WBS). It simply means chopping a huge goal into tiny, daily chunks until the work feels easy.</p>
+            <div class="highlight-box">
+              <strong>Tip:</strong> Never start a project without defining what "Done" looks like.
+            </div>
+            <a href="https://asana.com/resources/work-breakdown-structure" target="_blank" class="external-link-btn">Read: The Layman's Guide to WBS ↗</a>
           </div>
-          <a href="https://www.charitiesregulator.ie/en/information-for-charities/charities-governance-code" target="_blank" class="external-link-btn">Irish Governance Code ↗</a>
         </div>
 
         <div class="card">
-          <h3>2. Planning & Scope</h3>
-          <p>Utilizing a Work Breakdown Structure (WBS) to slice massive, intimidating goals into daily, assignable tasks tied to SMART objectives.</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Kerzner, H. (2017). 'Project Management: A Systems Approach'.</span>
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=80" alt="People talking" class="card-img">
+          <div class="card-content">
+            <h3>💬 2. Stakeholder Comm</h3>
+            <p>A "Stakeholder" is just anyone who cares about your project (donors, volunteers, the community). You need a plan to keep them in the loop. A monthly email update can save you hours of answering questions.</p>
+            <div class="highlight-box">
+              <strong>Tip:</strong> Donors want details; volunteers want clear instructions.
+            </div>
+            <a href="https://www.mindtools.com/pages/article/newPPM_07.htm" target="_blank" class="external-link-btn">Read: Stakeholder Analysis ↗</a>
           </div>
-          <a href="https://www.pmi.org/learning/library/work-breakdown-structure-project-success-7119" target="_blank" class="external-link-btn">PMI Guide to WBS ↗</a>
         </div>
 
         <div class="card">
-          <h3>3. Risk Management</h3>
-          <p>Employing quantitative methods—such as cumulative probability tables in Excel—to calculate exposure to funding cuts, supply delays, or volunteer loss before committing resources.</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Flyvbjerg, B. (2006). 'Getting Risks Right', PM Journal.</span>
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Whiteboard with sticky notes" class="card-img">
+          <div class="card-content">
+            <h3>🚀 3. Implementation</h3>
+            <p>This is where the actual work happens! The easiest way to track this without fancy software is a <strong>Kanban Board</strong>. Think of it as a to-do list on steroids.</p>
+            <p>Just draw three columns on a whiteboard: <strong>To Do, Doing, Done.</strong> Write tasks on sticky notes and move them across the board as you work. It’s highly visual and incredibly satisfying for the team.</p>
+            <a href="https://trello.com/tour" target="_blank" class="external-link-btn">Try Trello (Free Kanban Tool) ↗</a>
           </div>
-          <a href="https://www.mindtools.com/pages/article/newTMC_07.htm" target="_blank" class="external-link-btn">Risk Matrix Templates ↗</a>
         </div>
 
         <div class="card">
-          <h3>4. Teams & Leadership</h3>
-          <p>Blending paid staff with volunteers requires 'Servant Leadership'. Navigating Tuckman’s phases (Forming, Storming, Norming, Performing) requires high emotional intelligence.</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Tuckman, B. W. (1965). 'Developmental sequence in small groups'.</span>
+          <div class="card-content">
+            <h3>🛤️ 4. Methodologies</h3>
+            <p>Don't let the word "methodology" scare you. It just means "how we prefer to work." There are two main flavors:</p>
+            <ul style="padding-left: 20px; font-size: 0.95rem; margin-top: 0;">
+              <li><strong>Waterfall:</strong> Like building a house. You can't put the roof on until the walls are up. Great for strict government grants.</li>
+              <li><strong>Agile:</strong> Like cooking a soup. You taste it, add salt, taste it again, and adjust. Great for event planning and marketing where things change quickly.</li>
+            </ul>
           </div>
-          <a href="https://hbr.org/2004/01/understanding-leadership" target="_blank" class="external-link-btn">HBR: Understanding Leadership ↗</a>
         </div>
 
         <div class="card">
-          <h3>5. Stakeholder Communication</h3>
-          <p>Mapping internal staff, donors, and the Revenue Commissioners on a Power/Interest grid to dictate reporting frequency and communication styles.</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Freeman, R. E. (2010). 'Strategic Management: A Stakeholder Approach'.</span>
+          <div class="card-content">
+            <h3>🤖 5. AI in Project Management</h3>
+            <p>You don't need to be a tech wizard to use Artificial Intelligence. Tools like ChatGPT can act as your free, personal assistant, saving hours of paperwork for small charities.</p>
+            <div class="highlight-box" style="border-left-color: #8b5cf6;">
+              <strong>Try copy-pasting this prompt into ChatGPT:</strong><br><br>
+              <em>"Act as an expert project manager. I am running a local bake sale in Dublin to raise funds for an animal shelter. Create a simple 4-week checklist of things I need to do."</em>
+            </div>
           </div>
-          <a href="https://www.smartsheet.com/stakeholder-management-guide" target="_blank" class="external-link-btn">Stakeholder Comm Guides ↗</a>
         </div>
 
         <div class="card">
-          <h3>6. Ethics & Sustainability</h3>
-          <p>Moving beyond financial KPIs to the 'Triple Bottom Line'—ensuring transparent financial audits and aligning project outputs with the UN Sustainable Development Goals (SDGs).</p>
-          <div class="highlight-box">
-            <span class="academic-cite">Ref: Silvius, G. (2014). 'Sustainability in project management'.</span>
+          <div class="card-content">
+            <h3>🤝 6. Teams & Leadership</h3>
+            <p>Leading volunteers is very different from leading paid corporate staff. You cannot boss them around. You must use "Servant Leadership"—which simply means asking your team, <em>"What is blocking your work today, and how can I fix it for you?"</em></p>
           </div>
-          <a href="https://sdgs.un.org/goals" target="_blank" class="external-link-btn">Explore the UN SDGs ↗</a>
         </div>
 
-        <div class="card">
-          <h3>7. Implementation</h3>
-          <p>The physical execution phase. Utilizing visual Kanban boards to manage resource leveling and identify process bottlenecks in real-time.</p>
-        </div>
-        <div class="card">
-          <h3>8. Methodologies</h3>
-          <p>Choosing the correct engine. Waterfall for construction and rigid grants; Hybrid models for dynamic, community-facing charity campaigns.</p>
-        </div>
-        <div class="card">
-          <h3>9. AI in Project Management</h3>
-          <p>Leveraging Large Language Models (LLMs) to draft grant proposals, summarize meeting minutes, and generate preliminary risk lists.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="section" id="bonus-topics">
-      <h2>Advanced Capabilities (Beyond the Syllabus)</h2>
-      <p class="section-subtitle">To provide an elite-level guide, I have included two additional critical knowledge areas highly sought after in the Dublin TPM market.</p>
-
-      <div class="cards">
-        <div class="card bonus-card">
-          <h3>➕ Organizational Change Management (OCM)</h3>
-          <p>A project is a failure if nobody adopts the end product. Using frameworks like <strong>ADKAR</strong> (Awareness, Desire, Knowledge, Ability, Reinforcement) ensures that when a charity rolls out a new IT system, the staff and volunteers actually use it.</p>
-          <a href="https://www.prosci.com/methodology/adkar" target="_blank" class="external-link-btn" style="border-color: var(--accent-color); color: var(--accent-color);">Prosci ADKAR Model ↗</a>
-        </div>
-
-        <div class="card bonus-card">
-          <h3>➕ Vendor & Procurement Management</h3>
-          <p>Small businesses frequently outsource tasks (e.g., website development, event catering). Managing RFPs (Requests for Proposals), establishing Service Level Agreements (SLAs), and integrating external vendors into the project timeline is a critical TPM skill.</p>
-          <a href="https://www.cips.org/knowledge/procurement-cycle/" target="_blank" class="external-link-btn" style="border-color: var(--accent-color); color: var(--accent-color);">CIPS Procurement Guide ↗</a>
-        </div>
       </div>
     </div>
 
     <div class="section" id="multimedia">
       <h2>Multimedia Learning Hub</h2>
-      <p class="section-subtitle">A core requirement of this guide. Engage with these concepts through audio-visual formats.</p>
+      <p class="section-subtitle">Prefer watching or listening? Explore our audio-visual guides.</p>
 
       <div class="media-grid">
         <div class="media-player">
           <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ The Blueprint: Video Overview</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">A full visual breakdown of how a local SME can map out their first project lifecycle.</p>
+          <p style="font-size: 0.95rem; color: var(--text-light);">A simple visual breakdown of mapping out your first project.</p>
           <div class="video-wrapper">
             <iframe width="560" height="315" src="YOUR_VIDEO_LINK_HERE" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">🎧 Charity Risks: Audio Byte</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">Listen to a quick podcast byte discussing volunteer turnover and scope creep.</p>
+          <h3 style="color: var(--secondary-color); margin-top: 0;">🎧 Audio Byte: Charity Risks</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">Listen to a quick podcast on handling volunteer turnover.</p>
           <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 15px;">
-            <strong>Episode 1: Navigating Scope Creep</strong><br>
-            <span style="font-size: 0.85rem; color: #64748b;">Hosted by Neetu | 4m 12s</span>
+            <strong>Ep 1: Managing Without a Budget</strong><br>
             <audio controls style="width: 100%; margin-top: 15px;">
               <source src="YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
             </audio>
@@ -531,42 +445,36 @@
       </div>
     </div>
 
-    <div class="section" id="external-library">
-      <h2>Curated Public Reference Library</h2>
-      <p class="section-subtitle">Direct links to publicly available materials, templates, and regulatory bodies utilized in building this guide.</p>
-      
-      <div class="library-grid">
-        <div class="library-item">
-          <a href="https://www.charitiesregulator.ie/" target="_blank">The Charities Regulator (Ireland) ↗</a>
-          <p style="font-size: 0.85rem; margin: 5px 0 0; color: var(--text-light);">Statutory governance framework for Irish non-profits.</p>
-        </div>
-        <div class="library-item">
-          <a href="https://scrumguides.org/" target="_blank">The Official Scrum Guide ↗</a>
-          <p style="font-size: 0.85rem; margin: 5px 0 0; color: var(--text-light);">The definitive rulebook for Agile software and project delivery.</p>
-        </div>
-        <div class="library-item">
-          <a href="https://www.pmi.org/pmbok-guide-standards" target="_blank">PMI PMBOK Standards ↗</a>
-          <p style="font-size: 0.85rem; margin: 5px 0 0; color: var(--text-light);">Global standards for traditional project management.</p>
-        </div>
-        <div class="library-item">
-          <a href="https://sdgs.un.org/" target="_blank">UN Sustainable Development Goals ↗</a>
-          <p style="font-size: 0.85rem; margin: 5px 0 0; color: var(--text-light);">Framework for ensuring project sustainability and ethical impact.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 
   <footer>
     <div class="container">
-      <p><strong style="color: white; font-size: 1.2rem;">UCD Michael Smurfit Graduate Business School</strong></p>
-      <p>Company Project Module (Individual Assignment) | Submitted to: joe.houghton@gmail.com</p>
-      <p>Architected by Neetu | MSc Project Management (Class of 2026)</p>
-      <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-        <p style="font-size: 0.85rem; color: #64748b;">This platform was built synthesizing academic literature, 14 years of professional experience, and publicly available open-source frameworks.</p>
-      </div>
+      <p><strong style="color: white; font-size: 1.1rem;">UCD Michael Smurfit Graduate Business School</strong></p>
+      <p>Company Project Module | Submitted to: joe.houghton@gmail.com</p>
+      <p>Architected by Neetu | Class of 2026</p>
     </div>
   </footer>
+
+  <script>
+    const topButton = document.getElementById("backToTop");
+
+    // Show button when user scrolls down 300px
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        topButton.classList.add("show");
+      } else {
+        topButton.classList.remove("show");
+      }
+    };
+
+    // Scroll to top when clicked
+    topButton.onclick = function() {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    };
+  </script>
 
 </body>
 </html>
