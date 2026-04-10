@@ -1,241 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Project Simplified | Neetu's TPM Guide</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Project Simplified | Neetu Roy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --primary-color: #2563eb;
-      --secondary-color: #1e293b;
-      --accent-color: #f59e0b;
-      --text-main: #334155;
-      --text-light: #64748b;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --font-stack: 'Inter', -apple-system, sans-serif;
-    }
+<style>
+:root {
+  --primary:#2563eb;
+  --secondary:#1e293b;
+  --accent:#f59e0b;
+  --text:#334155;
+}
 
-    body {
-      font-family: var(--font-stack);
-      margin: 0;
-      background: radial-gradient(circle at 20% 30%, #e0f2fe, transparent 40%),
-                  radial-gradient(circle at 80% 70%, #fef3c7, transparent 40%),
-                  linear-gradient(135deg, #f8fafc, #e2e8f0);
-      color: var(--text-main);
-      line-height: 1.7;
-    }
+body {
+  margin:0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at 20% 30%, #e0f2fe, transparent 40%),
+              radial-gradient(circle at 80% 70%, #fef3c7, transparent 40%),
+              linear-gradient(135deg, #f8fafc, #e2e8f0);
+  color:var(--text);
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.7);
-      backdrop-filter: blur(10px);
-      padding: 15px 0;
-      z-index: 1000;
-    }
+/* NAV */
+nav {
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+}
 
-    .nav-container {
-      width: 90%;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+nav a {
+  margin-left:20px;
+  text-decoration:none;
+  color:var(--secondary);
+  font-weight:600;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--secondary-color);
-      margin-left: 20px;
-      font-weight: 600;
-    }
+/* HERO */
+.hero {
+  text-align:center;
+  padding:100px 20px;
+}
 
-    .container {
-      width: 90%;
-      margin: auto;
-      max-width: 1100px;
-    }
+.hero h1 {
+  font-size:54px;
+}
 
-    header.hero {
-      padding: 100px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+.btn {
+  background:var(--primary);
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  text-decoration:none;
+  margin-top:20px;
+  display:inline-block;
+}
 
-    header.hero::before {
-      content: "";
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      background: rgba(37,99,235,0.1);
-      border-radius: 50%;
-      top: -100px;
-      left: -100px;
-    }
+/* SECTIONS */
+.section {
+  width:90%;
+  max-width:1100px;
+  margin:auto;
+  padding:60px 0;
+}
 
-    header.hero::after {
-      content: "";
-      position: absolute;
-      width: 250px;
-      height: 250px;
-      background: rgba(245,158,11,0.1);
-      border-radius: 50%;
-      bottom: -100px;
-      right: -100px;
-    }
+h2 {
+  font-size:30px;
+  margin-bottom:20px;
+}
 
-    h1 { font-size: 52px; }
-    h2 { margin-top: 60px; font-size: 30px; }
-    h3 { color: var(--primary-color); }
+/* CARDS */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
 
-    .btn {
-      padding: 12px 25px;
-      background: var(--primary-color);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 20px;
-      display: inline-block;
-    }
+.card {
+  background:rgba(255,255,255,0.85);
+  padding:25px;
+  border-radius:12px;
+  transition:0.3s;
+}
 
-    .section { padding: 50px 0; }
+.card:hover {
+  transform:translateY(-6px);
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
-    }
+.highlight {
+  background:#f1f5f9;
+  padding:15px;
+  border-left:4px solid var(--primary);
+  margin-top:15px;
+}
 
-    .card {
-      background: var(--card-bg);
-      padding: 25px;
-      border-radius: 12px;
-      transition: 0.3s;
-    }
+.media {
+  border:2px dashed #cbd5e1;
+  padding:40px;
+  border-radius:10px;
+  text-align:center;
+  color:#64748b;
+}
 
-    .card:hover {
-      transform: translateY(-6px);
-    }
-
-    .highlight-box {
-      background: #f1f5f9;
-      padding: 15px;
-      border-left: 4px solid var(--primary-color);
-      margin-top: 15px;
-    }
-
-    .media-placeholder {
-      border: 2px dashed #cbd5e1;
-      padding: 40px;
-      border-radius: 10px;
-      text-align: center;
-      margin-top: 10px;
-      color: var(--text-light);
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      background: var(--secondary-color);
-      color: #94a3b8;
-      margin-top: 50px;
-    }
-  </style>
+/* FOOTER */
+footer {
+  text-align:center;
+  padding:40px;
+  background:var(--secondary);
+  color:#94a3b8;
+}
+</style>
 </head>
 
 <body>
 
 <nav>
-  <div class="nav-container">
-    <strong>Project Simplified</strong>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#framework">Framework</a>
-      <a href="#ai">AI</a>
-      <a href="https://neeturoyportfolio.vercel.app/" target="_blank">Portfolio ↗</a>
-    </div>
-  </div>
+<div><strong>Project Simplified</strong></div>
+<div>
+<a href="#about">About</a>
+<a href="#framework">Framework</a>
+<a href="#ai">AI</a>
+<a href="https://neeturoyportfolio.vercel.app/" target="_blank">Portfolio ↗</a>
+</div>
 </nav>
 
-<header class="hero">
-  <div class="container">
-    <h1>Project Simplified</h1>
-    <p>Helping small businesses and charities in Ireland deliver projects successfully</p>
-    <p>Built by combining real-world experience with academic frameworks from UCD</p>
-    <a class="btn" href="#framework">Explore Guide</a>
-  </div>
-</header>
+<!-- HERO -->
+<div class="hero">
+<h1>Beyond Frameworks.</h1>
+<p>Practical project management for Irish SMEs & charities</p>
+<p>14+ Years Experience • UCD MSc • Technical Program Management</p>
+<a class="btn" href="#framework">Explore Guide</a>
+</div>
 
-<div class="container">
-
+<!-- ABOUT -->
 <div class="section" id="about">
-  <h2>About This Guide</h2>
-  <p>This guide simplifies project management into practical steps tailored for Irish SMEs and charities.</p>
+<h2>The Architect Behind the Guide</h2>
+<p>
+I am Neetu, combining industry experience with academic knowledge to simplify project management for real-world application.
+</p>
+<p>
+This guide bridges theory (PMBOK, Agile) with real execution challenges in Irish organisations.
+</p>
 </div>
 
+<!-- CASE STUDY -->
 <div class="section">
-  <h2>Project Lifecycle</h2>
-  <div class="cards">
-    <div class="card"><h3>Initiation</h3><p>Define goals and stakeholders.</p></div>
-    <div class="card"><h3>Planning</h3><p>Create timelines and task breakdowns.</p></div>
-    <div class="card"><h3>Execution</h3><p>Deliver tasks and manage teams.</p></div>
-    <div class="card"><h3>Monitoring</h3><p>Track KPIs and risks.</p></div>
-    <div class="card"><h3>Closure</h3><p>Evaluate outcomes and lessons learned.</p></div>
-  </div>
+<h2>Thinking Beyond Corporate PM</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>💡 The Gucci Case Study</h3>
+<p>Project management exists everywhere — even in daily routines.</p>
+
+<div class="highlight">
+Managing feeding schedules, risks, and dependencies for a pet mirrors structured PM discipline.
+</div>
 </div>
 
+<div class="card">
+<h3>📊 Decision Analytics</h3>
+<p>Using probability models and structured analysis improves project decisions.</p>
+
+<div class="highlight">
+Excel-based decision trees help evaluate project success likelihood before execution.
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- LIFECYCLE -->
+<div class="section">
+<h2>Project Lifecycle</h2>
+
+<div class="cards">
+<div class="card"><h3>Initiation</h3><p>Define scope & stakeholders</p></div>
+<div class="card"><h3>Planning</h3><p>Create roadmap & timeline</p></div>
+<div class="card"><h3>Execution</h3><p>Deliver tasks</p></div>
+<div class="card"><h3>Monitoring</h3><p>Track KPIs</p></div>
+<div class="card"><h3>Closure</h3><p>Evaluate outcomes</p></div>
+</div>
+
+</div>
+
+<!-- CORE -->
 <div class="section" id="framework">
-  <h2>Core Framework</h2>
-  <div class="cards">
-    <div class="card"><h3>Strategy</h3><p>Align with organisational goals.</p></div>
-    <div class="card"><h3>Teams</h3><p>Lead effectively and communicate.</p></div>
-    <div class="card"><h3>Risk</h3><p>Identify and mitigate risks.</p></div>
-    <div class="card"><h3>Stakeholders</h3><p>Manage expectations.</p></div>
-  </div>
+<h2>Core Framework</h2>
+
+<div class="cards">
+<div class="card"><h3>Strategy</h3><p>Align with business goals</p></div>
+<div class="card"><h3>Teams</h3><p>Leadership & communication</p></div>
+<div class="card"><h3>Risk</h3><p>Identify & mitigate</p></div>
+<div class="card"><h3>Stakeholders</h3><p>Engage effectively</p></div>
 </div>
 
+</div>
+
+<!-- AI -->
 <div class="section" id="ai">
-  <h2>AI in Project Management</h2>
-  <p>AI helps automate planning, reporting, and decision-making.</p>
-  <div class="highlight-box">
-    Try: “Create a project plan for a charity event in Dublin.”
-  </div>
+<h2>AI in Project Management</h2>
+
+<p>AI enables faster planning, smarter decision-making, and automation.</p>
+
+<div class="highlight">
+Try: “Create a project plan for a Dublin charity event with risks and timeline.”
 </div>
 
-<div class="section">
-  <h2>Interactive Learning</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>🎥 Video</h3>
-      <div class="media-placeholder">Coming Soon</div>
-    </div>
-    <div class="card">
-      <h3>🎧 Audio</h3>
-      <div class="media-placeholder">Coming Soon</div>
-    </div>
-  </div>
 </div>
 
+<!-- MEDIA -->
 <div class="section">
-  <h2>Resources</h2>
-  <ul>
-    <li>Project Plan Template</li>
-    <li>Risk Tracker</li>
-    <li>Weekly Tracker</li>
-  </ul>
+<h2>Interactive Learning</h2>
+
+<div class="cards">
+<div class="card">
+<h3>🎥 Video Guide</h3>
+<div class="media">Coming Soon</div>
 </div>
 
-<div class="section">
-  <h2>About Me</h2>
-  <p>I am a Project Management student at UCD with industry experience.</p>
+<div class="card">
+<h3>🎧 Audio Insights</h3>
+<div class="media">Coming Soon</div>
 </div>
+</div>
+
+</div>
+
+<!-- RESOURCES -->
+<div class="section">
+<h2>Resources</h2>
+
+<ul>
+<li>Project Plan Template</li>
+<li>Risk Tracker</li>
+<li>Weekly Tracker</li>
+</ul>
+
+</div>
+
+<!-- FINAL -->
+<div class="section">
+<h2>Why This Matters</h2>
+
+<p>
+This guide demonstrates how structured project management improves delivery outcomes in resource-constrained environments.
+</p>
 
 </div>
 
 <footer>
-  <p>© 2026 Project Simplified | Neetu</p>
+<p>© 2026 Project Simplified | Neetu Roy</p>
 </footer>
 
 </body>
