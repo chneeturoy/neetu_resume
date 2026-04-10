@@ -76,17 +76,15 @@
       max-width: 1300px;
     }
 
-    /* Hero Cover */
+    /* UPGRADED HERO COVER (Creative Image + Parallax) */
     header.hero {
-      padding: 120px 0 100px;
-      background-color: var(--secondary-color);
-      background-image: 
-        radial-gradient(rgba(14, 165, 233, 0.15) 1px, transparent 1px),
-        radial-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px);
-      background-size: 40px 40px, 20px 20px;
-      background-position: 0 0, 20px 20px;
+      padding: 140px 0 120px;
       position: relative;
-      overflow: hidden;
+      /* Stunning background image with a dark overlay for text readability */
+      background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* Parallax Effect */
       border-bottom: 4px solid var(--primary-color);
     }
 
@@ -108,10 +106,11 @@
       margin-bottom: 25px;
       letter-spacing: 1px;
       text-transform: uppercase;
+      backdrop-filter: blur(4px);
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       margin-bottom: 20px;
       color: white;
       letter-spacing: -1.5px;
@@ -119,8 +118,8 @@
     }
 
     .hero p {
-      color: #94a3b8;
-      font-size: 1.15rem;
+      color: #cbd5e1;
+      font-size: 1.2rem;
       max-width: 800px;
     }
 
@@ -149,7 +148,7 @@
       max-width: 800px;
     }
 
-    /* Architecture Grid */
+    /* Cards Grid */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -281,9 +280,10 @@
 
     .media-player {
       background: white;
-      padding: 20px;
+      padding: 25px;
       border-radius: 12px;
       border: 1px solid #e2e8f0;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
     }
 
     .video-wrapper {
@@ -293,6 +293,7 @@
       background: #0f172a;
       border-radius: 8px;
       overflow: hidden;
+      margin-top: 15px;
     }
 
     .video-wrapper iframe {
@@ -357,10 +358,10 @@
       <div class="nav-brand">Project<span>Simplified.</span></div>
       <div class="nav-links">
         <a href="#author">The Architect</a>
+        <a href="#multimedia">Media Hub</a>
         <a href="#agile-deep-dive">Agile Hub</a>
         <a href="#core-areas">12 Core Elements</a>
         <a href="#references">Bibliography</a>
-        <a href="#multimedia">Media Hub</a>
       </div>
     </div>
   </nav>
@@ -372,8 +373,8 @@
       <p>
         An accessible, heavily researched knowledge hub designed to help small businesses, charities, and laypeople in Ireland translate complex methodologies into operational reality.
       </p>
-      <div style="margin-top: 30px;">
-        <a href="#core-areas" style="padding: 14px 28px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold;">Explore the 12 Modules</a>
+      <div style="margin-top: 35px;">
+        <a href="#multimedia" style="padding: 16px 32px; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.05rem;">Watch the Video Guide</a>
       </div>
     </div>
   </header>
@@ -401,6 +402,33 @@
         </div>
         <div>
           <strong>2. Contingency Planning:</strong> Implementing immediate risk mitigation for adverse Dublin weather disrupting schedule baselines, or reallocating budget for unexpected vet visits.
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="multimedia">
+      <h2>Multimedia Learning Hub</h2>
+      <p class="section-subtitle">Before diving into the 12 core modules, watch this overview or listen to our audio guide. A core requirement of this assignment, designed for varied learning styles.</p>
+
+      <div class="media-grid">
+        <div class="media-player">
+          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ The Blueprint: Video Overview</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">A simple visual breakdown of mapping out your first charity project.</p>
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="YOUR_VIDEO_LINK_HERE" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="media-player">
+          <h3 style="color: var(--secondary-color); margin-top: 0;">🎧 Charity Risks: Audio Byte</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">Listen to a quick podcast byte discussing volunteer turnover and scope creep.</p>
+          <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 15px;">
+            <strong>Episode 1: Navigating Scope Creep</strong><br>
+            <span style="font-size: 0.85rem; color: #64748b;">Hosted by Neetu | 4m 12s</span>
+            <audio controls style="width: 100%; margin-top: 15px;">
+              <source src="YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
+            </audio>
+          </div>
         </div>
       </div>
     </div>
@@ -531,7 +559,7 @@
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1512758117929-08ce41113e1d?auto=format&fit=crop&w=600&h=300&q=80" alt="Methodologies" class="card-img">
+          <img src="https://images.unsplash.com/photo-1553484771-047a44eee2ce?auto=format&fit=crop&w=600&h=300&q=80" alt="Methodologies" class="card-img">
           <div class="card-content">
             <h3>8. Methodologies</h3>
             <p>There is no one-size-fits-all framework. A project manager must assess the environment before deploying a methodology. Agile (sprints, flexibility) is ideal for evolving projects like software or charity marketing. Waterfall (sequential, rigid) is mandated for construction or strict government grant compliance.</p>
@@ -544,7 +572,7 @@
         </div>
 
         <div class="card">
-          <img src="https://images.unsplash.com/photo-1505664159893-68fb4f1a2ec0?auto=format&fit=crop&w=600&h=300&q=80" alt="Governance" class="card-img">
+          <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&h=300&q=80" alt="Governance" class="card-img">
           <div class="card-content">
             <h3>9. Governance</h3>
             <p>Governance dictates the rules of engagement and decision-making authority. For charities, this often involves establishing a Steering Committee to protect the Board of Directors. Strong governance frameworks prevent rogue spending and ensure that milestone approvals are formally documented and legally compliant.</p>
@@ -596,33 +624,6 @@
           </div>
         </div>
 
-      </div>
-    </div>
-
-    <div class="section" id="multimedia">
-      <h2>Multimedia Learning Hub</h2>
-      <p class="section-subtitle">A core requirement of this assignment. Engage with these concepts through audio-visual formats.</p>
-
-      <div class="media-grid">
-        <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ The Blueprint: Video Overview</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">A simple visual breakdown of mapping out your first project.</p>
-          <div class="video-wrapper">
-            <iframe width="560" height="315" src="YOUR_VIDEO_LINK_HERE" frameborder="0" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">🎧 Charity Risks: Audio Byte</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">Listen to a quick podcast byte discussing volunteer turnover and scope creep.</p>
-          <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 15px;">
-            <strong>Episode 1: Navigating Scope Creep</strong><br>
-            <span style="font-size: 0.85rem; color: #64748b;">Hosted by Neetu | 4m 12s</span>
-            <audio controls style="width: 100%; margin-top: 15px;">
-              <source src="YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </div>
       </div>
     </div>
 
