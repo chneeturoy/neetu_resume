@@ -7,19 +7,21 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
       background: #ffffff;
       color: #111;
+      line-height: 1.6;
     }
 
     .container {
       width: 85%;
       margin: auto;
+      max-width: 1100px;
     }
 
     header {
-      padding: 80px 0;
+      padding: 100px 0 60px;
       text-align: center;
     }
 
@@ -30,138 +32,231 @@
 
     h2 {
       margin-top: 60px;
+      font-size: 28px;
     }
 
     p {
       color: #555;
-      line-height: 1.6;
     }
 
     .btn {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: black;
       color: white;
       text-decoration: none;
       margin-top: 20px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .card {
-      border: 1px solid #eee;
-      padding: 20px;
-      border-radius: 10px;
+      border-radius: 6px;
     }
 
     .section {
       padding: 60px 0;
     }
 
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      border: 1px solid #eee;
+      padding: 25px;
+      border-radius: 12px;
+      transition: 0.3s;
+      background: #fafafa;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .highlight-box {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
     footer {
       text-align: center;
       padding: 40px;
       color: #777;
+      margin-top: 40px;
     }
+
   </style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <header>
-      <h1>Project Simplified</h1>
-      <p>Helping small businesses and charities in Ireland manage projects effectively</p>
-      <a class="btn" href="#">Explore Guide</a>
-    </header>
+  <!-- HERO -->
+  <header>
+    <h1>Project Simplified</h1>
+    <p>Helping small businesses and charities in Ireland deliver projects successfully</p>
 
-    <!-- ABOUT -->
-    <div class="section">
-      <h2>About This Guide</h2>
-      <p>
-        This platform simplifies project management into practical steps that help organisations plan, execute, and deliver successful outcomes.
-      </p>
-    </div>
+    <p style="margin-top:10px; font-size:18px;">
+      Practical tools • Real examples • AI-powered insights
+    </p>
 
-    <!-- CARDS -->
-    <div class="section">
-      <h2>Core Areas</h2>
-      <div class="cards">
+    <a class="btn" href="#guide">Explore the Guide</a>
+  </header>
 
-        <div class="card">
-          <h3>Planning</h3>
-          <p>Define goals, tasks, and timelines.</p>
-        </div>
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About This Guide</h2>
+    <p>
+      This platform simplifies project management into practical steps that help organisations plan, execute, and deliver successful outcomes.
+      It combines academic knowledge with real-world application tailored for small businesses and charities in Ireland.
+    </p>
+  </div>
 
-        <div class="card">
-          <h3>Execution</h3>
-          <p>Turn plans into real outcomes.</p>
-        </div>
+  <!-- JOURNEY SECTION -->
+  <div class="section" id="guide">
+    <h2>Start Your Project Journey</h2>
+    <p>Follow a simple approach to manage your project effectively.</p>
 
-        <div class="card">
-          <h3>Risk</h3>
-          <p>Identify and manage uncertainties.</p>
-        </div>
+    <div class="cards">
+      <div class="card">
+        <h3>1. Plan</h3>
+        <p>Define goals, tasks, and timelines using structured methods.</p>
+      </div>
 
-        <div class="card">
-          <h3>Teams</h3>
-          <p>Lead and collaborate effectively.</p>
-        </div>
+      <div class="card">
+        <h3>2. Execute</h3>
+        <p>Track progress, manage teams, and ensure smooth delivery.</p>
+      </div>
 
-        <div class="card">
-          <h3>AI</h3>
-          <p>Use AI to improve project delivery.</p>
-        </div>
-
-        <div class="card">
-          <h3>Resources</h3>
-          <p>Download templates and tools.</p>
-        </div>
-
+      <div class="card">
+        <h3>3. Deliver</h3>
+        <p>Achieve results and evaluate outcomes for continuous improvement.</p>
       </div>
     </div>
-
-    <!-- AI SECTION -->
-    <div class="section">
-      <h2>AI in Project Management</h2>
-      <p>
-        AI helps generate plans, automate reports, and improve decision-making. Tools like ChatGPT can support faster project execution.
-      </p>
-    </div>
-
-    <!-- RESOURCES -->
-    <div class="section">
-      <h2>Free Templates</h2>
-      <p>Download simple tools to manage your projects effectively.</p>
-
-      <ul>
-        <li>Project Plan Template</li>
-        <li>Risk Tracker</li>
-        <li>Weekly Tracker</li>
-      </ul>
-    </div>
-
-    <!-- ABOUT YOU -->
-    <div class="section">
-      <h2>About Me</h2>
-      <p>
-        I am a Project Management student at UCD with experience in IT project management. This guide is created to simplify project management for small organisations in Ireland.
-      </p>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>© 2026 Project Simplified</p>
-    </footer>
-
   </div>
+
+  <!-- CORE AREAS -->
+  <div class="section">
+    <h2>Core Project Management Areas</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Planning</h3>
+        <p>Define goals (SMART), break work into tasks, and create timelines.</p>
+      </div>
+
+      <div class="card">
+        <h3>Execution</h3>
+        <p>Monitor progress, communicate effectively, and manage tasks.</p>
+      </div>
+
+      <div class="card">
+        <h3>Risk</h3>
+        <p>Identify risks early and plan mitigation strategies.</p>
+      </div>
+
+      <div class="card">
+        <h3>Teams</h3>
+        <p>Build strong teams with clear roles and leadership.</p>
+      </div>
+
+      <div class="card">
+        <h3>Stakeholders</h3>
+        <p>Engage stakeholders through clear communication and updates.</p>
+      </div>
+
+      <div class="card">
+        <h3>Methodologies</h3>
+        <p>Use Agile, Waterfall, or Hybrid approaches based on your needs.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AI SECTION -->
+  <div class="section">
+    <h2>AI in Project Management</h2>
+
+    <p>
+      Artificial Intelligence is transforming how projects are planned and delivered.
+      Even small organisations can now use AI to improve efficiency and decision-making.
+    </p>
+
+    <h3>Try This Yourself</h3>
+    <div class="highlight-box">
+      "Create a project plan for a charity fundraising event in Dublin with timeline, risks, and team roles."
+    </div>
+  </div>
+
+  <!-- REAL EXAMPLE -->
+  <div class="section">
+    <h2>Real-World Application</h2>
+
+    <p>
+      A Dublin-based charity planning a fundraising event can use a project plan to assign roles,
+      track progress, and manage risks effectively—ensuring successful delivery with limited resources.
+    </p>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="section">
+    <h2>Free Project Templates</h2>
+
+    <p>Use these templates to simplify your project management process.</p>
+
+    <ul>
+      <li><a href="#">Download Project Plan Template</a></li>
+      <li><a href="#">Download Risk Tracker</a></li>
+      <li><a href="#">Download Weekly Tracker</a></li>
+    </ul>
+  </div>
+
+  <!-- VIDEO PLACEHOLDER -->
+  <div class="section">
+    <h2>Video Guide (Coming Soon)</h2>
+    <p>A short walkthrough explaining how to manage projects effectively.</p>
+  </div>
+
+  <!-- AUDIO PLACEHOLDER -->
+  <div class="section">
+    <h2>Audio Insights (Coming Soon)</h2>
+    <p>Quick tips on improving project outcomes.</p>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="section">
+    <h2>About Me</h2>
+
+    <p>
+      I am a Project Management student at University College Dublin with experience in IT project management.
+      This platform is created to simplify project management for small organisations in Ireland using practical tools and insights.
+    </p>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="section">
+    <h2>References</h2>
+
+    <p>
+      Project Management Institute (PMI)<br>
+      Harvard Business Review<br>
+      McKinsey & Company
+    </p>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Project Simplified</p>
+  </footer>
+
+</div>
 
 </body>
 </html>
