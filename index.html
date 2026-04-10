@@ -147,7 +147,7 @@
       max-width: 800px;
     }
 
-    /* Cards Grid */
+    /* Cards Grid & Perfect Height Alignment */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -161,6 +161,7 @@
       border-radius: 12px;
       display: flex;
       flex-direction: column;
+      height: 100%;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
@@ -287,6 +288,8 @@
       border-radius: 12px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+      display: flex;
+      flex-direction: column;
     }
 
     .video-wrapper {
@@ -364,7 +367,6 @@
         <a href="#multimedia">Media Hub</a>
         <a href="#agile-deep-dive">Agile Hub</a>
         <a href="#core-areas">12 Core Elements</a>
-        <a href="#video-masterclass">Masterclasses</a>
         <a href="#references">Bibliography</a>
       </div>
     </div>
@@ -412,28 +414,27 @@
 
     <div class="section" id="multimedia">
       <h2>Multimedia Learning Hub</h2>
-      <p class="section-subtitle">Before diving into the 12 core modules, watch this overview or listen to our audio guide. A core requirement of this assignment, designed for varied learning styles.</p>
+      <p class="section-subtitle">A core requirement of this assignment, designed for varied learning styles. Engage with these official, publicly available video masterclasses focused on Project Management and Agile methodologies.</p>
 
       <div class="media-grid">
         <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ The Blueprint: Video Overview</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">A simple visual breakdown of mapping out your first charity project.</p>
+          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ Intro to Project Management</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">An official masterclass by Google Career Certificates outlining the core PM lifecycle.</p>
+          
           <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/140032903" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/BOU1YWzEzBc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
 
         <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">🎧 Charity Risks: Audio Byte</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">Listen to a quick podcast byte discussing volunteer turnover and scope creep.</p>
-          <div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin-top: 15px;">
-            <strong>Episode 1: Navigating Scope Creep</strong><br>
-            <span style="font-size: 0.85rem; color: #64748b;">Hosted by Neetu | 4m 12s</span>
-            <audio controls style="width: 100%; margin-top: 15px;">
-              <source src="YOUR_AUDIO_LINK_HERE.mp3" type="audio/mpeg">
-            </audio>
+          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ Agile Methodology Explained</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">A visually engaging overview by Atlassian on running Agile Sprints effectively.</p>
+          
+          <div class="video-wrapper">
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/Z9QbYZh1YmU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -572,7 +573,7 @@
               <strong>Layman Tip:</strong> Ask your team "What is the absolute worst thing that could happen?" Assign a percentage to it happening, and create a backup plan.
               <span class="academic-cite">Ref: Flyvbjerg, B. (2006). 'Getting Risks Right'.</span>
             </div>
-            <a href="https://asana.com/resources/project-risk-management" target="_blank" class="external-link-btn">Asana: Risk Management ↗</a>
+            <a href="https://www.atlassian.com/software/jira/guides/risk-management/overview" target="_blank" class="external-link-btn">Atlassian: Risk Management Guide ↗</a>
           </div>
         </div>
 
@@ -652,29 +653,6 @@
           </div>
         </div>
 
-      </div>
-    </div>
-
-    <div class="section" id="video-masterclass">
-      <h2>External Video Masterclasses</h2>
-      <p class="section-subtitle">A curated selection of publicly available, high-quality video resources focused specifically on helping small businesses and charities get stuff done better.</p>
-      
-      <div class="media-grid">
-        <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ Project Management Intro</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">An excellent, easy-to-understand breakdown of fundamental PM concepts.</p>
-          <div class="video-wrapper">
-            <iframe src="https://player.vimeo.com/video/449197940" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <div class="media-player">
-          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ What is Agile?</h3>
-          <p style="font-size: 0.95rem; color: var(--text-light);">A visually engaging explanation of how to use Agile sprints to scale efficiently.</p>
-          <div class="video-wrapper">
-             <iframe src="https://player.vimeo.com/video/280036666" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          </div>
-        </div>
       </div>
     </div>
 
