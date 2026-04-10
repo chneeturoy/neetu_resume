@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    /* Modern, creative styling moving away from plain white */
     :root {
       --primary-color: #2563eb;
-      --secondary-color: #1e293b;
+      --primary-dark: #1e40af;
+      --secondary-color: #0f172a;
       --accent-color: #f59e0b;
       --text-main: #334155;
       --text-light: #64748b;
-      --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-      --card-bg: rgba(255, 255, 255, 0.85);
+      --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      --card-bg: rgba(255, 255, 255, 0.9);
       --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
@@ -26,15 +26,16 @@
       line-height: 1.7;
     }
 
-    /* Glassmorphism Navigation */
+    /* Navigation */
     nav {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       padding: 15px 0;
       z-index: 1000;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     }
 
     .nav-container {
@@ -49,8 +50,9 @@
     .nav-links a {
       text-decoration: none;
       color: var(--secondary-color);
-      margin-left: 20px;
+      margin-left: 24px;
       font-weight: 600;
+      font-size: 0.95rem;
       transition: color 0.3s;
     }
 
@@ -64,33 +66,43 @@
       max-width: 1200px;
     }
 
-    /* Dynamic Hero Section */
+    /* Hero Section */
     header.hero {
-      padding: 100px 0 80px;
+      padding: 120px 0 100px;
       text-align: center;
-      background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="%23cbd5e1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(37,99,235,0.05) 0%, transparent 60%);
+      z-index: -1;
     }
 
     h1 {
-      font-size: 56px;
-      margin-bottom: 10px;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
       color: var(--secondary-color);
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
     }
 
     h2 {
-      margin-top: 60px;
-      font-size: 32px;
+      margin-top: 70px;
+      font-size: 2rem;
       color: var(--secondary-color);
       border-bottom: 4px solid var(--primary-color);
       display: inline-block;
-      padding-bottom: 5px;
+      padding-bottom: 8px;
     }
 
     h3 {
-      color: var(--primary-color);
+      color: var(--primary-dark);
       margin-top: 0;
-      font-size: 22px;
+      font-size: 1.3rem;
     }
 
     p {
@@ -106,13 +118,13 @@
       text-decoration: none;
       margin-top: 20px;
       border-radius: 8px;
-      font-weight: bold;
-      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      font-weight: 600;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
       transition: all 0.3s ease;
     }
 
     .btn:hover {
-      background: #1d4ed8;
+      background: var(--primary-dark);
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
     }
@@ -130,43 +142,55 @@
     }
 
     .section {
-      padding: 50px 0;
+      padding: 60px 0;
     }
 
-    /* Glassmorphism Cards */
+    /* Expanded Content Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
       margin-top: 40px;
     }
 
     .card {
       background: var(--card-bg);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      padding: 30px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 35px;
       border-radius: 16px;
       transition: all 0.4s ease;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       display: flex;
       flex-direction: column;
     }
 
     .card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-6px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border-color: var(--primary-color);
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    .card ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
     }
 
     /* Out of the Box Special Card */
     .card.creative-box {
-      border-left: 6px solid var(--accent-color);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 235, 0.9) 100%);
+      border-top: 6px solid var(--accent-color);
+      background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);
+      grid-column: 1 / -1; /* Spans full width */
     }
 
     .highlight-box {
-      background: rgba(37, 99, 235, 0.05);
+      background: rgba(37, 99, 235, 0.04);
       padding: 20px;
       border-left: 4px solid var(--primary-color);
       border-radius: 0 8px 8px 0;
@@ -175,30 +199,62 @@
       color: var(--text-main);
     }
 
-    .author-block {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      background: var(--card-bg);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    /* Multimedia Styling */
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 40px;
     }
 
-    .media-placeholder {
-      background: rgba(226, 232, 240, 0.5);
+    @media (max-width: 768px) {
+      .media-grid { grid-template-columns: 1fr; }
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      background: #cbd5e1;
       border-radius: 12px;
-      padding: 50px 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #94a3b8;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      border: none;
+    }
+
+    .video-placeholder-text {
+      position: absolute;
       text-align: center;
-      margin: 20px 0;
-      color: var(--text-light);
-      font-weight: bold;
-      border: 2px dashed #cbd5e1;
+      color: #475569;
+      font-weight: 600;
+    }
+
+    .audio-player {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      margin-top: 15px;
+    }
+
+    .audio-player audio {
+      width: 100%;
+      margin-top: 15px;
     }
 
     footer {
       text-align: center;
-      padding: 50px;
+      padding: 60px 20px;
       background: var(--secondary-color);
       color: #94a3b8;
       margin-top: 80px;
@@ -209,10 +265,9 @@
       text-decoration: none;
     }
 
-    /* Tech Stack Tags */
     .tag {
       display: inline-block;
-      padding: 5px 12px;
+      padding: 6px 14px;
       background: #e2e8f0;
       color: var(--secondary-color);
       border-radius: 20px;
@@ -228,27 +283,29 @@
 
   <nav>
     <div class="nav-container">
-      <strong style="font-size: 1.4rem; color: var(--primary-color);">Project Simplified</strong>
+      <strong style="font-size: 1.4rem; color: var(--primary-color); letter-spacing: -0.5px;">Project Simplified.</strong>
       <div class="nav-links">
-        <a href="#about-author">The Architect</a>
-        <a href="#core-areas">Methodologies</a>
-        <a href="#case-study">Case Studies</a>
-        <a href="https://neeturoyportfolio.vercel.app/" target="_blank">Portfolio ↗</a>
+        <a href="#framework">The Framework</a>
+        <a href="#case-study">Out of the Box</a>
+        <a href="#multimedia">Media Hub</a>
+        <a href="https://neeturoyportfolio.vercel.app/" target="_blank">TPM Portfolio ↗</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <h1>Beyond the Framework.</h1>
-      <p style="font-size: 1.4rem; color: var(--secondary-color); font-weight: 500;">
-        Practical project management for Irish charities & SMEs, built by industry.
+      <h1>Mastering the Chaos.</h1>
+      <p style="font-size: 1.5rem; color: var(--secondary-color); font-weight: 500; max-width: 800px; margin: 0 auto;">
+        A comprehensive, multimedia project management guide built specifically for small businesses and charities scaling in the Irish market.
       </p>
-      <p style="margin-top:10px; font-size:18px;">
-        14+ Years Experience • Academic Precision • Technical Program Management
+      <p style="margin-top:15px; font-size:1.1rem;">
+        Academic Precision • Actionable Tools • 14+ Years Industry Insight
       </p>
-      <a class="btn" href="#core-areas">Explore the 12-Step Guide</a>
-      <a class="btn btn-outline" href="#case-study" style="margin-left: 15px;">View Case Studies</a>
+      <div style="margin-top: 30px;">
+        <a class="btn" href="#framework">Dive into the Guide</a>
+        <a class="btn btn-outline" href="#multimedia" style="margin-left: 15px;">Watch the Introduction</a>
+      </div>
     </div>
   </header>
 
@@ -256,20 +313,75 @@
 
     <div class="section" id="about-author">
       <h2>The Architect Behind the Guide</h2>
-      <div class="author-block">
-        <div style="flex: 1;">
-          <h3 style="color: var(--secondary-color);">Hi, I'm Neetu.</h3>
+      <div class="card" style="flex-direction: row; flex-wrap: wrap; gap: 30px; align-items: center;">
+        <div style="flex: 1; min-width: 300px;">
+          <h3 style="color: var(--secondary-color); font-size: 1.8rem;">Hi, I'm Neetu.</h3>
+          <p><strong>Transforming 14+ years of industry complexity into actionable clarity.</strong></p>
           <p>
-            <strong>Bridging 14+ Years of Industry Experience with Academic Rigor.</strong>
+            I am currently pursuing my Masters in Project Management at the UCD Smurfit Graduate Business School. But my perspective isn't purely academic. Before coming to Dublin, I spent over a decade in the trenches of professional project delivery, and I am actively transitioning into a Technical Program Manager (TPM) role.
           </p>
           <p>
-            I am currently pursuing my Masters in Project Management at the Umit Business School here in Dublin. However, I didn't start this journey from scratch. I bring over a decade of hands-on professional experience to this platform, actively transitioning into a Technical Program Manager role.
+            I built "Project Simplified" to bridge the gap between heavy academic frameworks (like the PMBOK) and the reality of running a lean SME or charity. Whether you are aiming to partner with major players like MasterCard or launching a local community initiative, the core fundamentals of risk, agile scheduling, and strategic alignment are what determine your success.
           </p>
-          <p>
-            I built "Project Simplified" to prove that the best project managers don't just blindly follow rigid frameworks. We adapt them. Whether it's managing a complex IT rollout, navigating the Dublin job market with MasterCard or the Central Bank, or helping a local charity launch a campaign, the fundamentals of risk, scheduling, and stakeholder communication remain universal.
-          </p>
-          <div style="margin-top: 20px;">
-            <a class="btn" href="https://neeturoyportfolio.vercel.app/" target="_blank">View My TPM Portfolio</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="framework">
+      <h2>The 12 Core Elements, Decoded</h2>
+      <p style="max-width: 800px;">We’ve categorized the 12 mandatory areas of project management into the four chronological phases of a project lifecycle, providing a logical, step-by-step roadmap for your organisation.</p>
+
+      <div class="cards">
+        
+        <div class="card">
+          <h3>Phase 1: Initiation & Strategy</h3>
+          <p>Before a single euro is spent, the foundation must be set. A project without strategic alignment is a waste of vital charity resources.</p>
+          <ul>
+            <li><strong>Strategy:</strong> Aligning the project deliverables directly with the organizational mission.</li>
+            <li><strong>Governance:</strong> Establishing a Steering Committee to define "who decides what" and prevent scope creep.</li>
+            <li><strong>Ethics:</strong> Ensuring transparency with donors and adhering to the Charities Regulator Ireland codes.</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Key Output:</strong> The Project Charter & Business Case.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Phase 2: Planning & Risk</h3>
+          <p>Failing to plan is planning to fail. This phase translates high-level strategy into an actionable, mathematical roadmap.</p>
+          <ul>
+            <li><strong>Planning:</strong> Developing a Work Breakdown Structure (WBS) to slice massive goals into daily tasks.</li>
+            <li><strong>Risk:</strong> Proactively identifying threats (funding cuts, key volunteer loss) and calculating impact probability.</li>
+            <li><strong>Methodologies:</strong> Choosing your engine. Will you use Agile (sprints, flexible) or Waterfall (sequential, predictable)?</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Key Output:</strong> The Gantt Chart & Risk Register.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Phase 3: Execution & Teams</h3>
+          <p>The "boots on the ground" phase. This requires high emotional intelligence and rigorous tracking.</p>
+          <ul>
+            <li><strong>Implementation:</strong> Managing the daily workflow, tracking budgets, and removing roadblocks for the team.</li>
+            <li><strong>Teams:</strong> Blending paid staff with volunteers. Moving through Tuckman’s Forming, Storming, Norming, Performing stages.</li>
+            <li><strong>Leadership:</strong> Utilizing "Servant Leadership"—focusing on empowering your team rather than micro-managing them.</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Key Output:</strong> Weekly Status Reports & Kanban Boards.
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Phase 4: Delivery & Impact</h3>
+          <p>Handing over the final product and ensuring it provides long-term value to the community.</p>
+          <ul>
+            <li><strong>Stakeholders:</strong> Keeping the community, board members, and sponsors informed through targeted communication plans.</li>
+            <li><strong>Sustainability:</strong> Ensuring the project’s outputs align with the UN Sustainable Development Goals (SDGs) for lasting environmental and social impact.</li>
+            <li><strong>AI Integration:</strong> Leveraging generative AI to rapidly summarize project post-mortems and draft future grant proposals.</li>
+          </ul>
+          <div class="highlight-box">
+            <strong>Key Output:</strong> The Project Closure Document & AI Impact Report.
           </div>
         </div>
       </div>
@@ -277,71 +389,81 @@
 
     <div class="section" id="case-study">
       <h2>Thinking Outside the Box</h2>
-      <p>Joe Houghton asked us to prove that project management is dynamic. Let's look at how PM principles apply outside the corporate sphere.</p>
-      
-      <div class="cards">
+      <div class="cards" style="margin-top: 20px;">
         <div class="card creative-box">
-          <h3 style="color: var(--accent-color);">💡 The Universal Nature of PM: The Gucci Timetable</h3>
-          <p>Think project management is only for corporate software rollouts? Think again. Scheduling, resource allocation, and stakeholder management apply everywhere—even at home.</p>
+          <h3 style="color: var(--accent-color);">💡 PM is Universal: The Gucci Operations Framework</h3>
+          <p>Think project management is strictly for IT rollouts? To demonstrate resource dependency and agile scheduling in a creative way, let's look at managing a high-maintenance stakeholder: my dog, Gucci.</p>
           
-          <div class="highlight-box" style="background: rgba(245, 158, 11, 0.1); border-left-color: var(--accent-color);">
-            <strong>Case Study: Daily Operations Management</strong><br><br>
-            To demonstrate agile scheduling and resource dependency, I map out a daily operational framework for managing a high-priority, highly demanding stakeholder: my pet dog, Gucci.<br><br>
-            <strong>The Scope:</strong><br>
-            • <strong>Procurement & Input:</strong> Coordinating exact meal timelines (Oats, Ladoos, Omelets) to maintain optimal energy levels.<br>
-            • <strong>KPIs:</strong> Monitoring daily hydration goals and entertainment metrics.<br>
-            • <strong>Risk Management:</strong> Contingency planning for unexpected variables (e.g., vet visits).<br><br>
-            <em>Conclusion: Managing a pet requires the exact same strict timeline adherence and risk mitigation as deploying a small business initiative.</em>
+          <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 15px;">
+            <div style="flex: 1; min-width: 250px;">
+              <strong>1. Procurement & Inputs (Scope):</strong><br>
+              Coordinating exact nutritional inputs (Oats, Ladoos, Omelets) mapped against daily energy expenditure. Missing a delivery milestone results in immediate stakeholder dissatisfaction.
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+              <strong>2. Risk Mitigation (Contingency):</strong><br>
+              Accounting for variables such as adverse weather affecting the daily walk schedule, or unexpected vet visits requiring immediate budget reallocation.
+            </div>
           </div>
-        </div>
-
-        <div class="card">
-          <h3>📊 Technical Risk: The Decision Tree Approach</h3>
-          <p>For charities making tough financial choices, a simple risk register isn't always enough. I employ quantitative technical analysis to drive decisions.</p>
-          <div class="highlight-box">
-            <strong>The Tool: Cumulative Probability Excel Models</strong><br><br>
-            Instead of guessing, I build complex decision trees and cumulative probability tables in Excel. This allows stakeholders to visualize the exact mathematical probability of a project succeeding before committing funds.<br><br>
-            <em>*Interactive Excel template available in the resources section.</em>
+          
+          <div class="highlight-box" style="margin-top: 25px; background: rgba(245, 158, 11, 0.1); border-left-color: var(--accent-color);">
+            <em>The Takeaway: Whether it's deploying a new database or managing a pet's daily timetable, the mechanics of timeline adherence, resource allocation, and risk management remain exactly the same.</em>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="section" id="core-areas">
-      <h2>The Core PM Framework</h2>
-      <p>Synthesising academic theory (PMBOK, Agile) with real-world application for Irish SMEs.</p>
+    <div class="section" id="multimedia">
+      <h2>Multimedia Learning Hub</h2>
+      <p>I believe in accessible education. Engage with these concepts through visual breakdowns and on-the-go audio insights.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>1. Strategy & Governance</h3>
-          <p>Aligning the project with the charity's mission. Clear governance (like a Steering Committee) prevents scope creep and ensures board accountability.</p>
+      <div class="media-grid">
+        
+        <div>
+          <h3>▶️ The Project Simplified Overview</h3>
+          <p>In this video, I walk through the architecture of this guide and how small businesses can start applying these frameworks today.</p>
+          
+          <div class="video-wrapper">
+            <div class="video-placeholder-text">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 10px;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+              </svg><br>
+              [ Upload your Introduction Video Here ]<br>
+              <span style="font-size: 0.8rem; font-weight: normal;">Replace this box with an &lt;iframe&gt; tag</span>
+            </div>
+            </div>
         </div>
-        <div class="card">
-          <h3>2. Planning & Implementation</h3>
-          <p>Moving from a Business Case to a Work Breakdown Structure (WBS). Execution requires constant monitoring using tools like Kanban or Gantt charts.</p>
+
+        <div>
+          <h3>🎧 Audio Insight: Risk in the Charity Sector</h3>
+          <p>Listen to a quick 3-minute breakdown on how to identify unique risks when managing volunteer-led teams.</p>
+          
+          <div class="audio-player">
+            <strong>Episode 1: Navigating Volunteer Turnover</strong><br>
+            <span style="font-size: 0.85rem; color: #64748b;">Duration: 3m 45s | Hosted by Neetu</span>
+            
+            <audio controls>
+              Your browser does not support the audio element.
+            </audio>
+            <div style="margin-top: 15px; font-size: 0.85rem; color: var(--text-light); text-align: center; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+              [ Upload your MP3/WAV file to the src attribute ]
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>3. Stakeholders & Teams</h3>
-          <p>Blending paid staff with volunteers in Ireland requires specific leadership styles, such as Servant Leadership, to maintain morale and manage expectations.</p>
-        </div>
-        <div class="card">
-          <h3>4. Ethics & Sustainability</h3>
-          <p>Adhering to the Charities Regulator guidelines while ensuring project outcomes meet long-term environmental and social goals (SDGs).</p>
-        </div>
+
       </div>
     </div>
 
     <div class="section">
-      <h2>Built for the Modern Web</h2>
-      <div class="author-block" style="flex-direction: column; align-items: flex-start; padding: 30px;">
-        <h3>Technical Implementation</h3>
-        <p>As a Technical Program Manager, I believe project managers should understand the tech stack they manage. This guide wasn't just written; it was architected.</p>
-        <div>
+      <h2>Platform Architecture</h2>
+      <div class="card" style="padding: 30px;">
+        <p>As an aspiring Technical Program Manager, I approach assignments as end-to-end product builds. This platform was architected utilizing:</p>
+        <div style="margin-top: 15px;">
           <span class="tag">HTML5 / CSS3</span>
-          <span class="tag">Glassmorphism UI</span>
-          <span class="tag">GitHub Pages Deployment</span>
-          <span class="tag">Wix Integration Experience</span>
-          <span class="tag">JSON Configuration</span>
+          <span class="tag">CSS Grid & Flexbox</span>
+          <span class="tag">Responsive Media Queries</span>
+          <span class="tag">GitHub Pages Deployment Ready</span>
+          <span class="tag">JSON Integrations</span>
         </div>
       </div>
     </div>
@@ -350,12 +472,12 @@
 
   <footer>
     <div class="container">
-      <p><strong>UCD Michael Smurfit Graduate Business School - Company Project Module</strong></p>
-      <p>Developed by Neetu | MSc Project Management (Class of 2026)</p>
+      <p><strong style="color: white;">UCD Michael Smurfit Graduate Business School</strong><br>Company Project Module (Individual Assignment)</p>
+      <p>Architected by Neetu | MSc Project Management (Class of 2026)</p>
       <p>Submitted to: joe.houghton@gmail.com</p>
-      <p style="margin-top: 20px; font-size: 0.9rem;">
-        View my <a href="https://neeturoyportfolio.vercel.app/" target="_blank">TPM Portfolio</a>
-      </p>
+      <div style="margin-top: 30px; border-top: 1px solid #334155; padding-top: 20px;">
+        <a href="https://neeturoyportfolio.vercel.app/" target="_blank">Explore My Full TPM Portfolio ↗</a>
+      </div>
     </div>
   </footer>
 
