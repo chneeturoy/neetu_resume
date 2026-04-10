@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Project Simplified | PM for Irish Charities & SMEs</title>
+  <title>Project Simplified | Neetu's TPM Guide</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    /* CSS Variables for consistent theming */
+    /* Modern, creative styling moving away from plain white */
     :root {
-      --primary-color: #0056b3;
-      --secondary-color: #f8f9fa;
-      --text-main: #333;
-      --text-muted: #666;
-      --accent-color: #e9ecef;
-      --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      --primary-color: #2563eb;
+      --secondary-color: #1e293b;
+      --accent-color: #f59e0b;
+      --text-main: #334155;
+      --text-light: #64748b;
+      --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --font-stack: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
       font-family: var(--font-stack);
       margin: 0;
-      background: #ffffff;
+      background: var(--bg-gradient);
       color: var(--text-main);
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* Sticky Navigation */
+    /* Glassmorphism Navigation */
     nav {
       position: sticky;
       top: 0;
-      background: white;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       padding: 15px 0;
       z-index: 1000;
     }
@@ -45,10 +48,10 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text-main);
+      color: var(--secondary-color);
       margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.2s;
+      font-weight: 600;
+      transition: color 0.3s;
     }
 
     .nav-links a:hover {
@@ -61,24 +64,25 @@
       max-width: 1200px;
     }
 
-    /* Hero Section */
+    /* Dynamic Hero Section */
     header.hero {
-      padding: 80px 0 60px;
+      padding: 100px 0 80px;
       text-align: center;
-      background: linear-gradient(to bottom, #f1f5f9, #ffffff);
-      border-bottom: 1px solid #e2e8f0;
+      background: url('data:image/svg+xml;utf8,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="%23cbd5e1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 56px;
       margin-bottom: 10px;
-      color: #111;
+      color: var(--secondary-color);
+      letter-spacing: -1px;
     }
 
     h2 {
       margin-top: 60px;
       font-size: 32px;
-      border-bottom: 3px solid var(--primary-color);
+      color: var(--secondary-color);
+      border-bottom: 4px solid var(--primary-color);
       display: inline-block;
       padding-bottom: 5px;
     }
@@ -86,105 +90,136 @@
     h3 {
       color: var(--primary-color);
       margin-top: 0;
+      font-size: 22px;
     }
 
     p {
-      color: var(--text-muted);
-      font-size: 1.05rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 14px 32px;
       background: var(--primary-color);
       color: white;
       text-decoration: none;
       margin-top: 20px;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: bold;
-      transition: background 0.3s;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
-      background: #004494;
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-color);
+      color: white;
     }
 
     .section {
-      padding: 40px 0;
+      padding: 50px 0;
     }
 
-    /* Grid Layouts */
+    /* Glassmorphism Cards */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
     }
 
     .card {
-      border: 1px solid #e2e8f0;
-      padding: 25px;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      background: #ffffff;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+      background: var(--card-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 30px;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-color);
+    }
+
+    /* Out of the Box Special Card */
+    .card.creative-box {
+      border-left: 6px solid var(--accent-color);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 248, 235, 0.9) 100%);
     }
 
     .highlight-box {
-      background: #f8f9fa;
-      padding: 15px;
+      background: rgba(37, 99, 235, 0.05);
+      padding: 20px;
       border-left: 4px solid var(--primary-color);
       border-radius: 0 8px 8px 0;
-      margin-top: auto; /* Pushes box to bottom of card */
-      font-size: 0.9rem;
-      color: #444;
+      margin-top: auto;
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+
+    .author-block {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     }
 
     .media-placeholder {
-      background: #e2e8f0;
-      border-radius: 8px;
-      padding: 40px 20px;
+      background: rgba(226, 232, 240, 0.5);
+      border-radius: 12px;
+      padding: 50px 20px;
       text-align: center;
       margin: 20px 0;
-      color: #64748b;
+      color: var(--text-light);
       font-weight: bold;
       border: 2px dashed #cbd5e1;
     }
 
-    ul.custom-list {
-      padding-left: 20px;
-      color: var(--text-muted);
-    }
-
-    ul.custom-list li {
-      margin-bottom: 10px;
-    }
-
-    .academic-ref {
-      font-size: 0.85rem;
-      color: #777;
-      margin-top: 10px;
-      display: block;
-      font-style: italic;
-    }
-
     footer {
       text-align: center;
-      padding: 40px;
-      background: #111;
-      color: #ddd;
-      margin-top: 60px;
+      padding: 50px;
+      background: var(--secondary-color);
+      color: #94a3b8;
+      margin-top: 80px;
     }
 
     footer a {
-      color: #4da6ff;
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    /* Tech Stack Tags */
+    .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      background: #e2e8f0;
+      color: var(--secondary-color);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
   </style>
 </head>
@@ -193,194 +228,122 @@
 
   <nav>
     <div class="nav-container">
-      <strong style="font-size: 1.2rem;">Project Simplified</strong>
+      <strong style="font-size: 1.4rem; color: var(--primary-color);">Project Simplified</strong>
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#core-areas">The 12 Core Areas</a>
-        <a href="#media">Multimedia Guides</a>
-        <a href="#templates">Templates</a>
+        <a href="#about-author">The Architect</a>
+        <a href="#core-areas">Methodologies</a>
+        <a href="#case-study">Case Studies</a>
+        <a href="https://neeturoyportfolio.vercel.app/" target="_blank">Portfolio ↗</a>
       </div>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
-      <h1>Project Simplified</h1>
-      <p style="font-size: 1.3rem; color: #333;">Helping small businesses and charities in Ireland get stuff done better.</p>
+      <h1>Beyond the Framework.</h1>
+      <p style="font-size: 1.4rem; color: var(--secondary-color); font-weight: 500;">
+        Practical project management for Irish charities & SMEs, built by industry.
+      </p>
       <p style="margin-top:10px; font-size:18px;">
-        Academic Insights • Practical Tools • AI Strategies
+        14+ Years Experience • Academic Precision • Technical Program Management
       </p>
       <a class="btn" href="#core-areas">Explore the 12-Step Guide</a>
+      <a class="btn btn-outline" href="#case-study" style="margin-left: 15px;">View Case Studies</a>
     </div>
   </header>
 
   <div class="container">
 
-    <div class="section" id="about">
-      <h2>About This Guide</h2>
-      <p>
-        Running a charity or small business in Ireland requires making the most of limited resources. 
-        This platform synthesises complex academic project management methodologies into an accessible, 
-        easy-to-use online guide. Whether you are launching a community fundraiser or implementing a new IT system, 
-        this toolkit blends current best practices with actionable templates to ensure successful project delivery.
-      </p>
+    <div class="section" id="about-author">
+      <h2>The Architect Behind the Guide</h2>
+      <div class="author-block">
+        <div style="flex: 1;">
+          <h3 style="color: var(--secondary-color);">Hi, I'm Neetu.</h3>
+          <p>
+            <strong>Bridging 14+ Years of Industry Experience with Academic Rigor.</strong>
+          </p>
+          <p>
+            I am currently pursuing my Masters in Project Management at the Umit Business School here in Dublin. However, I didn't start this journey from scratch. I bring over a decade of hands-on professional experience to this platform, actively transitioning into a Technical Program Manager role.
+          </p>
+          <p>
+            I built "Project Simplified" to prove that the best project managers don't just blindly follow rigid frameworks. We adapt them. Whether it's managing a complex IT rollout, navigating the Dublin job market with MasterCard or the Central Bank, or helping a local charity launch a campaign, the fundamentals of risk, scheduling, and stakeholder communication remain universal.
+          </p>
+          <div style="margin-top: 20px;">
+            <a class="btn" href="https://neeturoyportfolio.vercel.app/" target="_blank">View My TPM Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="case-study">
+      <h2>Thinking Outside the Box</h2>
+      <p>Joe Houghton asked us to prove that project management is dynamic. Let's look at how PM principles apply outside the corporate sphere.</p>
+      
+      <div class="cards">
+        <div class="card creative-box">
+          <h3 style="color: var(--accent-color);">💡 The Universal Nature of PM: The Gucci Timetable</h3>
+          <p>Think project management is only for corporate software rollouts? Think again. Scheduling, resource allocation, and stakeholder management apply everywhere—even at home.</p>
+          
+          <div class="highlight-box" style="background: rgba(245, 158, 11, 0.1); border-left-color: var(--accent-color);">
+            <strong>Case Study: Daily Operations Management</strong><br><br>
+            To demonstrate agile scheduling and resource dependency, I map out a daily operational framework for managing a high-priority, highly demanding stakeholder: my pet dog, Gucci.<br><br>
+            <strong>The Scope:</strong><br>
+            • <strong>Procurement & Input:</strong> Coordinating exact meal timelines (Oats, Ladoos, Omelets) to maintain optimal energy levels.<br>
+            • <strong>KPIs:</strong> Monitoring daily hydration goals and entertainment metrics.<br>
+            • <strong>Risk Management:</strong> Contingency planning for unexpected variables (e.g., vet visits).<br><br>
+            <em>Conclusion: Managing a pet requires the exact same strict timeline adherence and risk mitigation as deploying a small business initiative.</em>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>📊 Technical Risk: The Decision Tree Approach</h3>
+          <p>For charities making tough financial choices, a simple risk register isn't always enough. I employ quantitative technical analysis to drive decisions.</p>
+          <div class="highlight-box">
+            <strong>The Tool: Cumulative Probability Excel Models</strong><br><br>
+            Instead of guessing, I build complex decision trees and cumulative probability tables in Excel. This allows stakeholders to visualize the exact mathematical probability of a project succeeding before committing funds.<br><br>
+            <em>*Interactive Excel template available in the resources section.</em>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section" id="core-areas">
-      <h2>The 12 Core Elements of Project Success</h2>
-      <p>Master these fundamental areas to manage any initiative effectively. Evidence shows that structured approaches significantly improve project outcomes (Flyvbjerg, 2021).</p>
-
-      <div class="cards">
-        
-        <div class="card">
-          <h3>1. Strategy</h3>
-          <p>Aligning your project with your charity or business mission. A project without strategic alignment wastes resources.</p>
-          <div class="highlight-box">
-            <strong>Best Practice:</strong> Use a Business Case to justify the project's value before starting.
-            <span class="academic-ref">Source: Harvard Business Review, "The Strategic Project Manager" (2022).</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>2. Planning</h3>
-          <p>Defining clear goals (SMART), breaking work into actionable tasks (WBS), and establishing realistic timelines.</p>
-          <div class="highlight-box">
-            <strong>Best Practice:</strong> Failing to plan is planning to fail. Map out dependencies early.
-            <span class="academic-ref">Source: Project Management Institute (PMI), PMBOK Guide 7th Ed.</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>3. Implementation</h3>
-          <p>The execution phase. This involves tracking progress against your plan and managing the day-to-day workflow.</p>
-          <div class="highlight-box">
-            <strong>Tool:</strong> Kanban boards (like Trello) are highly effective for visualising implementation tasks.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>4. Teams</h3>
-          <p>Building strong, cohesive units. For Irish charities, this often means blending paid staff with dedicated volunteers.</p>
-          <div class="highlight-box">
-            <strong>Insight:</strong> Tuckman’s stages of group development (Forming, Storming, Norming, Performing) apply to every team.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>5. Leadership</h3>
-          <p>Guiding the team through challenges. "Servant Leadership" is particularly effective in volunteer-driven charity sectors.</p>
-          <div class="highlight-box">
-            <strong>Academic View:</strong> Transformational leadership fosters higher project success rates in non-profits (Smith, 2020).
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>6. Stakeholders</h3>
-          <p>Identifying everyone impacted by the project (donors, local community, staff) and managing their expectations.</p>
-          <div class="highlight-box">
-            <strong>Action:</strong> Create a Stakeholder Power/Interest matrix to tailor your communication strategy.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>7. Risk</h3>
-          <p>Proactively identifying what could go wrong (e.g., funding cuts, weather for outdoor events) and planning mitigation.</p>
-          <div class="highlight-box">
-            <strong>Best Practice:</strong> Maintain an active Risk Register. Risk management is continuous, not a one-time event.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>8. Methodologies</h3>
-          <p>Choosing the right framework: Agile (flexible, iterative) vs Waterfall (sequential, traditional) or a Hybrid approach.</p>
-          <div class="highlight-box">
-            <strong>Tip:</strong> Agile is ideal for event planning and software; Waterfall suits construction and rigid grants.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>9. Governance</h3>
-          <p>Establishing who makes the decisions. Clear governance prevents "scope creep" and ensures accountability to the Board.</p>
-          <div class="highlight-box">
-            <strong>Insight:</strong> Define a Project Steering Committee for large-scale charity initiatives.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>10. Ethics</h3>
-          <p>Ensuring transparency in resource allocation, honest reporting to donors, and fair treatment of project participants.</p>
-          <div class="highlight-box">
-            <strong>Standard:</strong> Adhere to the Charities Regulator (Ireland) guidelines on ethical governance.
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>11. Sustainability</h3>
-          <p>Considering the long-term environmental and social impact of your project outputs. Are you building lasting value?</p>
-          <div class="highlight-box">
-            <strong>Goal:</strong> Align project outcomes with the UN Sustainable Development Goals (SDGs).
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>12. AI</h3>
-          <p>Leveraging Artificial Intelligence to write grant proposals, automate meeting minutes, or generate preliminary risk lists.</p>
-          <div class="highlight-box">
-            <strong>Try This Prompt:</strong> "Act as a PM. Generate a 12-week schedule for a charity bake sale in Dublin."
-            <span class="academic-ref">Source: Int. Journal of Project Management, "AI in the PM Office" (2023).</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="section" id="media">
-      <h2>Multimedia Learning Hub</h2>
-      <p>Engage with project management concepts through different media formats tailored for varied learning styles.</p>
+      <h2>The Core PM Framework</h2>
+      <p>Synthesising academic theory (PMBOK, Agile) with real-world application for Irish SMEs.</p>
 
       <div class="cards">
         <div class="card">
-          <h3>▶️ Video Guide: Creating a WBS</h3>
-          <p>Watch this 3-minute visual breakdown of how to divide a large project into manageable tasks.</p>
-          <div class="media-placeholder">
-            [ Embed YouTube Video Here ]<br>
-            <small>&lt;iframe src="..."&gt;&lt;/iframe&gt;</small>
-          </div>
+          <h3>1. Strategy & Governance</h3>
+          <p>Aligning the project with the charity's mission. Clear governance (like a Steering Committee) prevents scope creep and ensures board accountability.</p>
         </div>
-
         <div class="card">
-          <h3>🎧 Audio Insight: Managing Volunteer Risks</h3>
-          <p>Listen to a quick podcast byte on identifying unique risks when working with volunteer teams in Ireland.</p>
-          <div class="media-placeholder">
-            [ Embed Audio Player Here ]<br>
-            <small>&lt;audio controls&gt;&lt;source src="..."&gt;&lt;/audio&gt;</small>
-          </div>
+          <h3>2. Planning & Implementation</h3>
+          <p>Moving from a Business Case to a Work Breakdown Structure (WBS). Execution requires constant monitoring using tools like Kanban or Gantt charts.</p>
+        </div>
+        <div class="card">
+          <h3>3. Stakeholders & Teams</h3>
+          <p>Blending paid staff with volunteers in Ireland requires specific leadership styles, such as Servant Leadership, to maintain morale and manage expectations.</p>
+        </div>
+        <div class="card">
+          <h3>4. Ethics & Sustainability</h3>
+          <p>Adhering to the Charities Regulator guidelines while ensuring project outcomes meet long-term environmental and social goals (SDGs).</p>
         </div>
       </div>
-    </div>
-
-    <div class="section" id="templates">
-      <h2>Free Project Templates</h2>
-      <p>Applying theory to practice. Download these accessible resources to standardise your project delivery.</p>
-      
-      <ul class="custom-list">
-        <li><strong>Project Charter Template (.docx):</strong> Define your project’s scope, objectives, and stakeholders.</li>
-        <li><strong>Risk Register & Matrix (.xlsx):</strong> Automatically calculate risk severity and track mitigations.</li>
-        <li><strong>Communication Plan (.pdf):</strong> Ensure donors, staff, and the board stay informed.</li>
-      </ul>
-      <a class="btn" href="#">Download Resource Pack (ZIP)</a>
     </div>
 
     <div class="section">
-      <h2>Academic & Business References</h2>
-      <p>This guide synthesises current literature to provide best practices outside standard module textbooks.</p>
-      <ul class="custom-list" style="font-size: 0.9rem;">
-        <li>Charities Regulator Ireland. (2022). <em>Charities Governance Code</em>. Dublin: Charities Regulator.</li>
-        <li>Flyvbjerg, B. (2021). <em>Make Megaprojects More Modular</em>. Harvard Business Review.</li>
-        <li>Project Management Institute. (2021). <em>A Guide to the Project Management Body of Knowledge (PMBOK® Guide) – Seventh Edition</em>. PMI.</li>
-        <li>Smith, J. & Doe, A. (2023). <em>Artificial Intelligence Applications in Small-Scale Project Management</em>. International Journal of Information Systems, 45(2), 112-128.</li>
-        <li>Tuckman, B. W. (1965). <em>Developmental sequence in small groups</em>. Psychological Bulletin, 63(6), 384–399.</li>
-      </ul>
+      <h2>Built for the Modern Web</h2>
+      <div class="author-block" style="flex-direction: column; align-items: flex-start; padding: 30px;">
+        <h3>Technical Implementation</h3>
+        <p>As a Technical Program Manager, I believe project managers should understand the tech stack they manage. This guide wasn't just written; it was architected.</p>
+        <div>
+          <span class="tag">HTML5 / CSS3</span>
+          <span class="tag">Glassmorphism UI</span>
+          <span class="tag">GitHub Pages Deployment</span>
+          <span class="tag">Wix Integration Experience</span>
+          <span class="tag">JSON Configuration</span>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -388,8 +351,11 @@
   <footer>
     <div class="container">
       <p><strong>UCD Michael Smurfit Graduate Business School - Company Project Module</strong></p>
-      <p>Created by: [Your Name / Student ID] | Submitted to: joe.houghton@gmail.com</p>
-      <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 Project Simplified. Designed for small businesses & charities in Ireland.</p>
+      <p>Developed by Neetu | MSc Project Management (Class of 2026)</p>
+      <p>Submitted to: joe.houghton@gmail.com</p>
+      <p style="margin-top: 20px; font-size: 0.9rem;">
+        View my <a href="https://neeturoyportfolio.vercel.app/" target="_blank">TPM Portfolio</a>
+      </p>
     </div>
   </footer>
 
