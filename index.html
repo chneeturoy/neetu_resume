@@ -76,15 +76,14 @@
       max-width: 1300px;
     }
 
-    /* UPGRADED HERO COVER (Creative Image + Parallax) */
+    /* Parallax Hero */
     header.hero {
       padding: 140px 0 120px;
       position: relative;
-      /* Stunning background image with a dark overlay for text readability */
       background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed; /* Parallax Effect */
+      background-attachment: fixed;
       border-bottom: 4px solid var(--primary-color);
     }
 
@@ -187,6 +186,10 @@
       flex-grow: 1;
     }
 
+    .card-text-wrapper {
+      flex-grow: 1;
+    }
+
     .card h3 {
       font-size: 1.3rem;
       color: var(--secondary-color);
@@ -195,7 +198,7 @@
       padding-bottom: 15px;
     }
 
-    .card p { flex-grow: 1; font-size: 0.95rem; }
+    .card p { font-size: 0.95rem; }
 
     /* Highlight Boxes */
     .highlight-box {
@@ -361,6 +364,7 @@
         <a href="#multimedia">Media Hub</a>
         <a href="#agile-deep-dive">Agile Hub</a>
         <a href="#core-areas">12 Core Elements</a>
+        <a href="#video-masterclass">Masterclasses</a>
         <a href="#references">Bibliography</a>
       </div>
     </div>
@@ -415,7 +419,7 @@
           <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ The Blueprint: Video Overview</h3>
           <p style="font-size: 0.95rem; color: var(--text-light);">A simple visual breakdown of mapping out your first charity project.</p>
           <div class="video-wrapper">
-            <iframe width="560" height="315" src="YOUR_VIDEO_LINK_HERE" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="YOUR_PERSONAL_VIDEO_LINK_HERE" frameborder="0" allowfullscreen></iframe>
           </div>
         </div>
 
@@ -470,21 +474,25 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&h=300&q=80" alt="Strategy Planning" class="card-img">
           <div class="card-content">
-            <h3>1. Strategy</h3>
-            <p>Strategy is the alignment of project deliverables with the organizational mission. For charities, initiating a project that does not serve the core mission wastes donor funds and dilutes impact. Strategic PM requires evaluating the business case before execution begins, ensuring long-term value creation.</p>
+            <div class="card-text-wrapper">
+              <h3>1. Strategy</h3>
+              <p>Strategy is the alignment of project deliverables with the organizational mission. For charities, initiating a project that does not serve the core mission wastes donor funds and dilutes impact. Strategic PM requires evaluating the business case before execution begins, ensuring long-term value creation.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Never start a project without asking, "Does this directly help us achieve our main charity goal?"
               <span class="academic-cite">Ref: Shenhar, A. J., et al. (2001). 'Project Success'.</span>
             </div>
-            <a href="https://hbr.org/2021/11/how-to-turn-strategy-into-reality" target="_blank" class="external-link-btn">HBR: Strategy into Reality ↗</a>
+            <a href="https://www.bridgespan.org/insights/strategic-planning-for-nonprofits" target="_blank" class="external-link-btn">Bridgespan: Charity Strategy ↗</a>
           </div>
         </div>
 
         <div class="card">
           <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&h=300&q=80" alt="Planning and Scope" class="card-img">
           <div class="card-content">
-            <h3>2. Planning & Scope</h3>
-            <p>Planning bridges the gap between vision and execution. Small businesses often fail due to 'scope creep'—where the project expands uncontrollably. A rigorous Work Breakdown Structure (WBS) mitigates this by decomposing massive goals into granular, assignable daily tasks tied to SMART objectives.</p>
+            <div class="card-text-wrapper">
+              <h3>2. Planning & Scope</h3>
+              <p>Planning bridges the gap between vision and execution. Small businesses often fail due to 'scope creep'—where the project expands uncontrollably. A rigorous Work Breakdown Structure (WBS) mitigates this by decomposing massive goals into granular, assignable daily tasks tied to SMART objectives.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Imagine planning a massive gala. The WBS simply means chopping that huge goal into tiny, daily chunks until the work feels easy.
               <span class="academic-cite">Ref: Kerzner, H. (2017). 'Project Management'.</span>
@@ -496,8 +504,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=600&h=300&q=80" alt="Implementation" class="card-img">
           <div class="card-content">
-            <h3>3. Implementation</h3>
-            <p>Implementation is the physical execution of the project plan. It requires a dynamic approach to resource leveling, ensuring that neither staff nor volunteers are over-allocated. Utilizing visual tracking systems allows project managers to identify bottlenecks in real-time and pivot resources accordingly.</p>
+            <div class="card-text-wrapper">
+              <h3>3. Implementation</h3>
+              <p>Implementation is the physical execution of the project plan. It requires a dynamic approach to resource leveling, ensuring that neither staff nor volunteers are over-allocated. Utilizing visual tracking systems allows project managers to identify bottlenecks in real-time and pivot resources accordingly.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Use a Kanban Board. Just draw three columns on a whiteboard: "To Do", "Doing", "Done". Move sticky notes across as you work.
               <span class="academic-cite">Ref: Anderson, D. J. (2010). 'Kanban'.</span>
@@ -509,8 +519,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&h=300&q=80" alt="Teamwork" class="card-img">
           <div class="card-content">
-            <h3>4. Teams</h3>
-            <p>In the Irish non-profit sector, teams are frequently hybrid, blending paid core staff with temporary volunteers. Navigating psychological development models is crucial. Teams inevitably pass through phases of conflict (Tuckman’s Forming, Storming, Norming, Performing) before they can perform optimally.</p>
+            <div class="card-text-wrapper">
+              <h3>4. Teams</h3>
+              <p>In the Irish non-profit sector, teams are frequently hybrid, blending paid core staff with temporary volunteers. Navigating psychological development models is crucial. Teams inevitably pass through phases of conflict (Tuckman’s Forming, Storming, Norming, Performing) before they can perform optimally.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Don't panic when a new team argues (Storming phase). It is a scientifically proven, necessary step before they find their rhythm.
               <span class="academic-cite">Ref: Tuckman, B. W. (1965). 'Developmental sequence in small groups'.</span>
@@ -522,8 +534,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&h=300&q=80" alt="Leadership" class="card-img">
           <div class="card-content">
-            <h3>5. Leadership</h3>
-            <p>Authoritarian leadership fails in volunteer-driven organizations. Instead, 'Servant Leadership'—where the PM's primary job is to remove roadblocks for their team—fosters higher retention and morale. Emotional intelligence (EQ) is often a greater predictor of project success than technical competency alone.</p>
+            <div class="card-text-wrapper">
+              <h3>5. Leadership</h3>
+              <p>Authoritarian leadership fails in volunteer-driven organizations. Instead, 'Servant Leadership'—where the PM's primary job is to remove roadblocks for their team—fosters higher retention and morale. Emotional intelligence (EQ) is often a greater predictor of project success than technical competency alone.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> You cannot boss volunteers around. Your main job is to ask, "What is blocking your work today, and how can I fix it for you?"
               <span class="academic-cite">Ref: Müller, R., & Turner, J. R. (2010). 'Leadership competency profiles'.</span>
@@ -535,8 +549,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&h=300&q=80" alt="Stakeholders" class="card-img">
           <div class="card-content">
-            <h3>6. Stakeholders</h3>
-            <p>Stakeholders include anyone impacted by the project: donors, local community boards, the Revenue Commissioners, and internal staff. Mapping their power and interest dictates your communication strategy. A high-power stakeholder requires constant reporting; a low-power one just needs general monitoring.</p>
+            <div class="card-text-wrapper">
+              <h3>6. Stakeholders</h3>
+              <p>Stakeholders include anyone impacted by the project: donors, local community boards, the Revenue Commissioners, and internal staff. Mapping their power and interest dictates your communication strategy. A high-power stakeholder requires constant reporting; a low-power one just needs general monitoring.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> A monthly email update to donors and board members can save you hours of answering frantic questions later.
               <span class="academic-cite">Ref: Freeman, R. E. (2010). 'Strategic Management'.</span>
@@ -548,21 +564,25 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=300&q=80" alt="Risk Management" class="card-img">
           <div class="card-content">
-            <h3>7. Risk</h3>
-            <p>Risk management is continuous, not a one-time exercise. For Irish SMEs, this includes inflation, supply chain delays, and regulatory shifts. Employing quantitative methods, such as cumulative probability tables, allows organizations to mathematically calculate exposure before committing funds.</p>
+            <div class="card-text-wrapper">
+              <h3>7. Risk</h3>
+              <p>Risk management is continuous, not a one-time exercise. For Irish SMEs, this includes inflation, supply chain delays, and regulatory shifts. Employing quantitative methods, such as cumulative probability tables, allows organizations to mathematically calculate exposure before committing funds.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Ask your team "What is the absolute worst thing that could happen?" Assign a percentage to it happening, and create a backup plan.
               <span class="academic-cite">Ref: Flyvbjerg, B. (2006). 'Getting Risks Right'.</span>
             </div>
-            <a href="https://www.pmi.org/learning/library/risk-management-planning-project-success-7118" target="_blank" class="external-link-btn">PMI: Risk Management Basics ↗</a>
+            <a href="https://www.councilofnonprofits.org/running-nonprofit/administration-and-management/risk-management-nonprofits" target="_blank" class="external-link-btn">Nonprofit Risk Guide ↗</a>
           </div>
         </div>
 
         <div class="card">
           <img src="https://images.unsplash.com/photo-1553484771-047a44eee2ce?auto=format&fit=crop&w=600&h=300&q=80" alt="Methodologies" class="card-img">
           <div class="card-content">
-            <h3>8. Methodologies</h3>
-            <p>There is no one-size-fits-all framework. A project manager must assess the environment before deploying a methodology. Agile (sprints, flexibility) is ideal for evolving projects like software or charity marketing. Waterfall (sequential, rigid) is mandated for construction or strict government grant compliance.</p>
+            <div class="card-text-wrapper">
+              <h3>8. Methodologies</h3>
+              <p>There is no one-size-fits-all framework. A project manager must assess the environment before deploying a methodology. Agile (sprints, flexibility) is ideal for evolving projects like software or charity marketing. Waterfall (sequential, rigid) is mandated for construction or strict government grant compliance.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Waterfall is like building a house (you can't put the roof on until the walls are up). Agile is like cooking soup (taste, add salt, adjust).
               <span class="academic-cite">Ref: Highsmith, J. (2009). 'Agile Project Management'.</span>
@@ -574,8 +594,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=600&h=300&q=80" alt="Governance" class="card-img">
           <div class="card-content">
-            <h3>9. Governance</h3>
-            <p>Governance dictates the rules of engagement and decision-making authority. For charities, this often involves establishing a Steering Committee to protect the Board of Directors. Strong governance frameworks prevent rogue spending and ensure that milestone approvals are formally documented and legally compliant.</p>
+            <div class="card-text-wrapper">
+              <h3>9. Governance</h3>
+              <p>Governance dictates the rules of engagement and decision-making authority. For charities, this often involves establishing a Steering Committee to protect the Board of Directors. Strong governance frameworks prevent rogue spending and ensure that milestone approvals are formally documented and legally compliant.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Governance simply means answering: "Who has the final say to sign the checks?"
               <span class="academic-cite">Ref: Charities Regulator Ireland (2022).</span>
@@ -587,8 +609,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=600&h=300&q=80" alt="Ethics" class="card-img">
           <div class="card-content">
-            <h3>10. Ethics</h3>
-            <p>Ethics in project management goes beyond legal compliance; it is about integrity in reporting. Falsifying project statuses (the "watermelon effect"—green on the outside, red on the inside) destroys trust. SMEs must ensure fair labor practices and transparent financial audits at every project phase.</p>
+            <div class="card-text-wrapper">
+              <h3>10. Ethics</h3>
+              <p>Ethics in project management goes beyond legal compliance; it is about integrity in reporting. Falsifying project statuses (the "watermelon effect"—green on the outside, red on the inside) destroys trust. SMEs must ensure fair labor practices and transparent financial audits at every project phase. For local charities, ethical project management also means safeguarding vulnerable volunteer data and ensuring all fundraising activities strictly adhere to transparent marketing guidelines. Protecting your organization's reputation is just as critical as protecting the project budget, as public trust is the primary currency of the non-profit sector.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Never hide bad news from a donor or client. Honesty builds long-term funding relationships faster than perfect but fake results.
               <span class="academic-cite">Ref: Project Management Institute (2021). 'Code of Ethics'.</span>
@@ -600,8 +624,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=600&h=300&q=80" alt="Sustainability" class="card-img">
           <div class="card-content">
-            <h3>11. Sustainability</h3>
-            <p>Modern project management demands a 'Triple Bottom Line' approach: assessing financial, social, and environmental impacts. Projects must be audited for their carbon footprint and aligned with the UN Sustainable Development Goals (SDGs) to ensure long-term viability in a climate-conscious market.</p>
+            <div class="card-text-wrapper">
+              <h3>11. Sustainability</h3>
+              <p>Modern project management demands a 'Triple Bottom Line' approach: assessing financial, social, and environmental impacts. Projects must be audited for their carbon footprint and aligned with the UN Sustainable Development Goals (SDGs) to ensure long-term viability in a climate-conscious market. For instance, when organizing a community fundraising event, you must consider sourcing materials locally, eliminating single-use plastics, and ensuring the venue is fully accessible to all community members. True sustainability ensures that your project's short-term success does not come at the expense of the community's long-term environmental or social well-being.</p>
+            </div>
             <div class="highlight-box">
               <strong>Layman Tip:</strong> Look beyond just the budget. Will your project's outcome harm the local environment or exploit volunteers?
               <span class="academic-cite">Ref: Silvius, G., & Schipper, R. (2014). 'Sustainability in PM'.</span>
@@ -613,8 +639,10 @@
         <div class="card">
           <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=300&q=80" alt="Artificial Intelligence" class="card-img">
           <div class="card-content">
-            <h3>12. AI in Project Management</h3>
-            <p>Artificial Intelligence is radically altering project delivery. Small teams can now leverage Large Language Models (LLMs) to automate meeting minutes, draft complex grant proposals, and simulate project risk scenarios. Embracing generative AI allows resource-poor charities to operate with the efficiency of large corporations.</p>
+            <div class="card-text-wrapper">
+              <h3>12. AI in Project Management</h3>
+              <p>Artificial Intelligence is radically altering project delivery. Small teams can now leverage Large Language Models (LLMs) to automate meeting minutes, draft complex grant proposals, and simulate project risk scenarios. Embracing generative AI allows resource-poor charities to operate with the efficiency of large corporations.</p>
+            </div>
             <div class="highlight-box" style="border-left-color: #8b5cf6;">
               <strong>Layman AI Prompt (Copy/Paste to ChatGPT):</strong><br>
               <em>"Act as an expert project manager. I am running a local bake sale in Dublin to raise funds for an animal shelter. Create a simple 4-week checklist of tasks I need to do."</em>
@@ -624,6 +652,29 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="section" id="video-masterclass">
+      <h2>External Video Masterclasses</h2>
+      <p class="section-subtitle">A curated selection of publicly available, high-quality video resources focused specifically on helping small businesses and charities get stuff done better.</p>
+      
+      <div class="media-grid">
+        <div class="media-player">
+          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ Project Management for Nonprofits</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">A dedicated masterclass on doing more with less, tailored for the charity sector.</p>
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/z5D_tH1fXFw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="media-player">
+          <h3 style="color: var(--secondary-color); margin-top: 0;">▶️ Agile for Small Business Owners</h3>
+          <p style="font-size: 0.95rem; color: var(--text-light);">A visually engaging explanation of how to use Agile sprints to scale an SME efficiently.</p>
+          <div class="video-wrapper">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Z9QbYZh1YmU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </div>
 
