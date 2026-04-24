@@ -352,6 +352,50 @@
       margin-top: 80px;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
+    .flow-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.flow-step {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  padding: 18px 25px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #0f172a;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.flow-step:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: white;
+}
+
+.flow-arrow {
+  font-size: 22px;
+  font-weight: bold;
+  color: #64748b;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   </style>
 </head>
 
@@ -675,49 +719,48 @@
       </div>
     </div>
 
-    <div class="section" id="visual-chart">
-  <h2>Project Lifecycle Overview</h2>
+  <div class="section" id="visual-flow">
+  <h2>Project Lifecycle Flow</h2>
 
   <p class="section-subtitle">
-    This visual summarises the core stages of project management, demonstrating how projects progress from initiation to closure in a structured manner.
+    This interactive flow demonstrates how projects evolve across key stages, from initiation to closure, with continuous monitoring.
   </p>
 
-  <!-- Visual Chart -->
-  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:15px; margin-top:30px;">
+  <div class="flow-container">
 
-    <div style="flex:1; min-width:120px; background:#e0f2fe; padding:15px; border-radius:8px; text-align:center;">
-      <strong>1. Initiation</strong>
-    </div>
+    <div class="flow-step">Initiation</div>
+    <div class="flow-arrow">→</div>
 
-    <div>➡️</div>
+    <div class="flow-step">Planning</div>
+    <div class="flow-arrow">→</div>
 
-    <div style="flex:1; min-width:120px; background:#e0f2fe; padding:15px; border-radius:8px; text-align:center;">
-      <strong>2. Planning</strong>
-    </div>
+    <div class="flow-step">Execution</div>
+    <div class="flow-arrow">→</div>
 
-    <div>➡️</div>
+    <div class="flow-step">Monitoring</div>
+    <div class="flow-arrow">→</div>
 
-    <div style="flex:1; min-width:120px; background:#e0f2fe; padding:15px; border-radius:8px; text-align:center;">
-      <strong>3. Execution</strong>
-    </div>
-
-    <div>➡️</div>
-
-    <div style="flex:1; min-width:120px; background:#e0f2fe; padding:15px; border-radius:8px; text-align:center;">
-      <strong>4. Monitoring</strong>
-    </div>
-
-    <div>➡️</div>
-
-    <div style="flex:1; min-width:120px; background:#e0f2fe; padding:15px; border-radius:8px; text-align:center;">
-      <strong>5. Closure</strong>
-    </div>
+    <div class="flow-step">Closure</div>
 
   </div>
+
+  <p style="margin-top:20px; font-size:0.9rem; color:#64748b;">
+    Adapted from PMBOK lifecycle principles and real-world project delivery practices.
+  </p>
+
+  <!-- AUDIO -->
+  <div style="margin-top:40px;">
+    <h3 style="color: var(--secondary-color);">🎧 Audio Explanation</h3>
+
+    <p style="font-size:0.95rem; color: var(--text-light);">
+      This audio explains how each phase applies to SMEs and charities in real-world scenarios.
+    </p>
+
+    <audio controls style="width:100%; margin-top:15px;">
+      <source src="/audio/your-audio.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 </div>
-<p style="margin-top:20px; font-size:0.9rem; color:#64748b;">
-Adapted from standard project management frameworks such as PMBOK and widely used industry practices.
-</p>
     <div style="margin-top:30px;">
   <h3 style="color: var(--secondary-color);">🎧 Audio Explanation</h3>
 
